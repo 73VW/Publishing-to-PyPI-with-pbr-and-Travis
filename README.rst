@@ -218,7 +218,7 @@ Note that with :code:`git tag` the option :code:`-a` allows you to specify the v
 
 So your command will be the following:
 
-:code:`git tag -a v0.0.1 -m "First pypi deployment"`
+:code:`git tag -a 0.0.1 -m "First pypi deployment"`
 
 Now you can check if it was created by running :code:`git tag`.
 The result should look like the following.
@@ -237,9 +237,11 @@ PSA: Don't forget to add :code:`--tags` to your push command otherwise they will
 `⚠️Global notes`
 *****************
 
-Your project must be public in order to use Travis. Otherwise you have to upgrade to Travis pro.
+✔️ Your project must be public in order to use Travis. Otherwise you have to upgrade to Travis pro.
 
-Your email address must be verified on pypi in order to upload a new project. Otherwise upload will be rejected.
+✔️ Your email address must be verified on pypi in order to upload a new project. Otherwise upload will be rejected.
+
+✔️Your tag version must be in the form [DIGIT.DIGIT.DIGIT]. Check https://docs.openstack.org/pbr/3.1.0/semver.html for more infos.
 
 .. Bibliographie:
 

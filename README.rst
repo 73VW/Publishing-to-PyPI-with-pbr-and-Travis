@@ -40,7 +40,7 @@ First of all, the metadata section:
 
     [metadata]
     # App name
-    name = Test Publishing
+    name = Publishing to PyPI with pbr and Travis
     # Who made it?
     author = Maël Pedretti
     # Do I really need to explain the following?
@@ -67,7 +67,7 @@ First of all, the metadata section:
         Programming Language :: Python :: 3 :: Only
         Programming Language :: Python :: 3.6
         Programming Language :: Python :: Implementation :: CPython
-        Topic :: Home Automation
+        Topic :: Education
 
     # Which files that are not source code do you want to deploy?
     [files]
@@ -200,6 +200,46 @@ If you have `Travis CLI`_, this one is for you.
 ******************
 
 Well, let's try to push everyhing to the repository to check if everything is alright and if the tests pass!
+
+Go to `Travis home page`_ and check if everything went well!
+
+As you remember, we haven't set up any tag in github so this commit shouldn't get deployed.
+
+Travis will also tell it:
+
+:code:`Skipping a deployment with the pypi provider because this is not a tagged commit`
+
+`✔️Let's tag it!`
+******************
+
+Now, create a tag. This is easy with git. Git tag doc can be found `here <https://git-scm.com/book/en/v2/Git-Basics-Tagging>`_.
+
+Note that with :code:`git tag` the option :code:`-a` allows you to specify the version and :code:`-m` the message.
+
+So your command will be the following:
+
+:code:`git tag -a v0.0.1 -m "First pypi deployment"`
+
+Now you can check if it was created by running :code:`git tag`.
+The result should look like the following.
+
+.. code:: bash
+
+    $ git tag
+    v0.0.1
+
+And now push and check again Travis and pypi and your package should be deployed!
+
+PSA: Don't forget to add :code:`--tags` to your push command otherwise they will stay in your local repo.
+
+**✔️Deployed!**
+
+`⚠️Global notes`
+*****************
+
+Your project must be public in order to use Travis. Otherwise you have to upgrade to Travis pro.
+
+Your email address must be verified on pypi in order to upload a new project. Otherwise upload will be rejected.
 
 .. Bibliographie:
 

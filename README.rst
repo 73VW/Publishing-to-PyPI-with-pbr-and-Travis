@@ -11,7 +11,7 @@ In this tutorial, I will cover the use of PBR_ which simplifies the process.
 `Setup.py`
 ----------
 
-As you can see in the `setup.py`_ file included in this repository, the syntax is quite basic.
+As you can see in the `python setup`_ file included in this repository, the syntax is quite basic.
 
 .. code:: python
 
@@ -30,7 +30,7 @@ As you can see in the `setup.py`_ file included in this repository, the syntax i
 `Setup.cfg`
 -----------
 
-As you can see in the `setup.cfg`_ file included in this repository, the syntax not more complicated than the last file.
+As you can see in the `config setup`_ file included in this repository, the syntax not more complicated than the last file.
 
 Let's go through every section together.
 
@@ -84,9 +84,128 @@ First of all, the metadata section:
 `✔️Step 2: Enable Travis!`
 ***************************
 
+Two ways of enabling Travis are presented here. One using `Travis CLI`_ and one without.
+
+`Using travis CLI`
+-------------------
+
+Run :code:`travis login` and login to travis.
+
+Now you can run :code:`travis init`.
+
+If you are in a git repository, Travis will detect it and ask if this is correct.
+
+Otherwise, it will tell you it can detect the repo.
+
+Once you hit :code:`Enter`, Travis asks the main language. In this case, type :code:`Python`.
+
+Now a new file called :code:`.travis.yml` has been created and is available in your repo. Moreover, Travis is now enabled for this repo.
+
+We will go through this file later.
+
+`Manually`
+----------
+
+- Go to `Travis home page`_.
+- Sign up or Sign in.
+- Go to your profile page and sync your account.
+- Your public Github repositories are now listed above.
+- Toggle the project you want.
+
+`.travis.yml`
+-------------
+
+Now let's write our setting file.
+
+As the doc is really well made, I suggest you go check it first as I won't explain everything. You can find it here https://docs.travis-ci.com/user/getting-started/.
+
+However, I will explain the settings I usually use.
+
+.. code:: yaml
+
+    # Do I really need to explain this line?
+    language: python
+
+    # You can use a cache to build faster
+    cache: pip
+
+    # python version. You can define more than one if you want to run multiple tests
+    python:
+      - '3.6'
+
+    # your install script or your install list
+    install: pip install rstcheck
+
+    # your test script or your install list
+    script: rstcheck --recursive .
+
+    # settings for notifications, I personnaly don't like to be spammed on my email
+    notifications:
+      email:
+        on_failure: never
+        on_pull_requests: never
+
+    # the interresting part!
+    deploy:
+      # If you need to deploy files Travis has built, use the next line
+      skip_cleanup: true
+      # In this case we want to deploy to pypi
+      provider: pypi
+      # What distribution we want to deploy
+      distributions: sdist bdist_wheel
+      # When do we want to deploy?
+      on:
+        # In this case I want to deploy only when a tag is present...
+        tags: true
+        # ... and when tag is on master and respects the form "v0.0.0"
+        branch:
+          - master
+          - /v?(\d+\.)?(\d+\.)?(\*|\d+)$/
+      # Your pypi username
+      user: 73VW
+      # Your Pypi password secured by Travis if you have Travis CLI installed
+      password:
+        secure: cGJz+vETnxwWAZQvzveJKOyn3rWy3/tcVmJvTVuflrgKgwMRm+sfQZB3vo39LzDcDbMzlzxLO4SUsqDpCxlPPM1pCjqHeUkke76pXA3HGTqfSS5VBic979pBDBqzFe8SLxery0ND7uPAam2xtZQcMRjIzMZFS+ZBD3tD9pWFnFqQOaw6Mwnfj2dWuA7BeNEBEeG+EErAJTqWHlwodjLsDBBilrvYEMPha049JWSz9TE1SMUKWZszCpo2hda8edvcB7WrNWJCYO+Pmc56aUHGlqiyRUowec9ZQplhmD7HWriRvda4n+1WqUB8tdACqBSBo6t39dis/yiLDv/qZpi6cooxJBtlK184AZvCIfjiu8ua5JqJ/SBghzrwLf7b5VbWg/WOtS8NEB+TYhZhpmkYLPXnOoJLYbbrOYA/sz/QfwXke2NCTp7apZFAtU1lFN2gVWsmff7ysRWwwHW/iidCAcu9BXlwMt2x2dv5PqSSqN1QdwCQ+cGcewlIPInHwCpXwI4sJXPEHeax0J5c206Yf4PMkzgrUj1+UmpB2AKJkMF0+kGd+MOj9SXYbNE1Lc456CuvKUflVry12mVQCgqqL6lZQadQ+aNKy0LoK4o4CN6JTUMpIn6JIOapLc9hzOGZgVuFzZ5YAs6l8VraMzZuAzOEv79UB92B3Iq2Vxki8vo=
+      # Use the following if you don't have Travis CLI
+      password : ${PYPI_PASSWORD}
+
+`Password`
+----------
+
+If you don't have `Travis CLI`_ installed, use the second option I mentioned above and do the following:
+
+- In your profile page, find your project and click on the little gear ⚙️. This will bring you to the settings.
+- Go to the :code:`Environment Variables` section and add a new variable.
+- If you take my example, its name will be PYPI_PASSWORD and the value your password.
+
+.. image:: Add_pypi_password.PNG
+    :width: 100%
+    :alt: How-to add your password to Travis
+
+If you have `Travis CLI`_, this one is for you.
+
+- Leave blank the password section, like the following.
+
+.. code:: yaml
+
+    user: 73VW
+    # Your Pypi password
+    password:
+
+- Now let's encrypt it! Simply run :code:`travis encrypt --add deploy.password` and Travis will ask for your password, encrypt it and paste it to the file.
+
+🎉 Now your are ready to go! 🎉
+
+`✔️So what now?!`
+******************
+
+Well, let's try to push everyhing to the repository to check if everything is alright and if the tests pass!
+
 .. Bibliographie:
 
 .. _PBR: https://docs.openstack.org/pbr/latest/index.html
 
-.. _`setup.py`: ./setup.py
-.. _`setup.cfg`: ./setup.cfg
+.. _`python setup`: ./setup.py
+.. _`config setup`: ./setup.cfg
+.. _`Travis home page`: https://travis-ci.org
+.. _`Travis CLI`: https://github.com/travis-ci/travis.rb

@@ -16,7 +16,7 @@ deploy:
     tags: true
     branch:
     - master
-    - /v?(\d+\.)?(\d+\.)?(\*|\d+)$/
+    - /?(\d+\.)?(\d+\.)?(\*|\d+)$/
   user: 73VW
   password:
     secure: yK1ofmfUJ0FbuAgNVLGc+EfpC851BJmy9VzLtC+yxf19MSIz9v4xw6uqk14AIMDTOaGGrRmR5mvQUle6eSRXf50ZYKy7JIEizHXuGvU3iVBwny+Bo2RmZrW53ItRZ8qGdvz9tpNzfPYg0tvCqwj7EQulP1gyj/6aGGrH/Aa+4vkMwzlG7KB/7yS7Sh46zdVkdZ5OZwcixJAafZYuNriXwcwrUGiFxhtuNC9i2qaur/Evm0lf+yVVj4CvCN/DqEsjqkcetoEOirblYGQUGUzmKFe4QnZcEFzChD1wPxh/5RQ2+RbUiyNDxiO0ZX3xbfR0+RazltjesE7lu72TySnUDe4ccxyRexHdDFnSVnkwa7JHlwmxBAqnrvPea70IQikc9P0C/6E2saegNDU2aUfQIzYCcbr7qGtn3qzbuFt+xgFICO7FOcOzoF/0rThijIig+Z2nE7NiL34OQuEWiCJz1FXZFhNtcs+rSrNjHrkWvX6tL9k4OvZw8C1zMA9cjeSceCCsfN+MJohyQnOL9i9VgFz9C9Y59vq4xpMVfZM/A58MWQc9QmuVCdvt0IH8Np7YLOGihibn+F24tjqIKBbiusHJiMpEl/0/vqi5B/dTL7QcBKZ+qPDS0lXGCByzg35RCLXzmxIoWOjSqZZj8i9/yKlEAe73aB6nEjn9lgUw7uo=

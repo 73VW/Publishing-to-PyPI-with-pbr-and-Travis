@@ -2,7 +2,7 @@ language: python
 cache: pip
 python:
 - '3.6'
-install: pip install rstcheck
+install: pip install rstcheck sphinx==1.8.1 sphinx-rtd-theme==0.4.1
 script: rstcheck --recursive .
 notifications:
   email:

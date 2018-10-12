@@ -5,7 +5,7 @@
 ***************************************************
 jika kamu ingin mempublish project kamu ke PyPi, pertama kamu harus membuat setup file.
 
-ditutorial ini, saya akan membahas menggunakan PBR yang memudahkan proses.
+di tutorial ini, saya akan membahas menggunakan PBR_ dengan proses sederhana.
 
 `Setup.py`
 ----------
@@ -24,12 +24,12 @@ seperti yang bisa kamu lihat di file `python setup`_ sudah termasuk kedalam repo
         pbr=True
     )
 
-🎉 kamu menjelaskan dengan sederhana ketika menggunakan PBR_ 🎉
+🎉 kamu hanya menjelaskan secara sederhana ketika ingin menggunakan PBR_ 🎉
 
 `Setup.cfg`
 -----------
 
-seperti yang bisa kamu lihat di file `config setup`_ sudah termasuk ke dalam respository ini, syntaxnya tidak lebih sulit dari pada file yang terakhir.
+seperti yang bisa kamu lihat di file `config setup`_ sudah termasuk ke dalam repository ini, syntaxnya tidak lebih sulit dari pada file yang terakhir.
 
 Mari kita bahas setiap bagian bersama-sama
 
@@ -37,29 +37,29 @@ Pertama bagian metadata:
 
 .. code:: yaml
 
-    # Type of python distribution
+    # Type distibusi python
     [bdist_wheel]
     universal=0
 
     [metadata]
-    # App name
+    # Nama App
     name = Publishing to PyPI with pbr and Travis
-    # Who made it?
+    # Siapa yang membuat ?
     author = Maël Pedretti
-    # Do I really need to explain the following?
+    # apakah aku harus menjelaskan bagian ini ?
     author_email = mael.pedretti@he-arc.ch
-    # The short description of your app
+    # deskripsi singkat app kamu
     summary = Publishing to Pypi with PBR and Travis.
     # License type
     license = MIT
-    # Which file contains the long description?
+    # File mana yang mengandung deskripsi panjang ?
     description-file =
         README.rst
-    # Where can I access the project?
+    # Dimana aku bisa mengakses project ?
     home-page = https://github.com/73VW/Publishing-to-PyPI-with-pbr-and-Travis
-    # Which version of Python does it need to run?
+    # Versi python apa yang di butuhkan untuk menjalankan ?
     python_requires = >=3.6
-    # How do you classify your app? https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    # Bagaimana Anda mengklasifikasikan aplikasi Anda ? https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifier =
         Development Status :: 4 - Beta
         Environment :: Other Environment
@@ -72,16 +72,16 @@ Pertama bagian metadata:
         Programming Language :: Python :: Implementation :: CPython
         Topic :: Education
 
-    # Automatically find root package
+    # otomatis mencari package root
     [options]
     packages = find:
 
-    # Which files that are not source code do you want to deploy?
+    # File mana yang bukan termasuk source code yang ingin kamu deploy ?
     [files]
     data_files =
         some/example = some/example/*
 
-    # Where does your app start?
+    # Dimana app kamu akan di mulai ?
     [entry_points]
     console_scripts =
         automabot = your_package.__main__:main
@@ -91,7 +91,7 @@ Pertama bagian metadata:
 `✔️Step 2: Enable Travis!`
 ***************************
 
-Dua cara untuk aktifkan Travis diberikan disini. Satu dengan menggunakan `Travis CLI`_ dan yang satunya tidak.
+Dua cara untuk aktifkan Travis di jelaskan disini. Satu dengan menggunakan `Travis CLI`_ dan yang satunya tidak.
 
 `Using travis CLI`
 -------------------
@@ -104,7 +104,83 @@ Jika kamu ada di dalam git repository, Travis akan mendeteksi itu dan dan tanyak
 
 Jika tidak, dia akan memberitahu kamu kalau itu bisa mendeteksi repo.
 
-Sekali kau menekan tombol :code:`Enter`, Travis akan menanyakan bahasa pemograman yang digunakan, di kasus ini, typenya :code:`Python`.
+Sekali kamu menekan tombol :code:`Enter`, Travis akan menanyakan bahasa pemograman yang digunakan, di kasus ini, typenya :code:`Python`.
 
-Sekarang file baru yang namanya :code:`.travis.yml` telah dibuat dan tersedia di repo kamu. Bahkan, Travis bisa digunakan di untuk repo ini. 
+Sekarang file baru yang namanya :code:`.travis.yml` telah dibuat dan tersedia di repo kamu. Bahkan, Travis bisa digunakan untuk repo ini. 
  
+Kita akan memeriksa file ini nanti.
+
+`Manually`
+----------
+
+- Pergi ke `Travis home page`_.
+- Sign up atau Sign in.
+- Pergi ke halaman profile kamu dan sync akun kamu.
+- Repositories public Github kamu sekarang tercantum diatas.
+- Toggle project yang kamu inginkan.
+
+`.travis.yml`
+-------------
+
+Sekarang, mari menulis setting file kita.
+
+Karena dokumentasinya itu dibuat dengan sangat baik, saya menyarankan anda untuk memeriksa terlebih dahulu karena saya tidak akan menjelaskan semuanya. Kamu bisa mencarinya di sini https://docs.travis-ci.com/user/getting-started/.
+
+Namun, saya hanya menjelaskan settingan yang biasa saya gunakan.
+
+.. code:: yaml
+
+    # apakah perlu aku menjelaskan baris ini ?
+    language: python
+
+    # Kamu bisa menggunakan cache untuk build lebih cepat
+    cache: pip
+
+    # python version. You can define more than one if you want to run multiple tests
+    # versi python. kamu bisa menjelaskan lebih dari satu jika kamu ingin menjalankan multiple test
+    python:
+      - '3.6'
+
+    # install script kamu atau list install kamu
+    install: pip install rstcheck
+
+    # test script kamu atau daftar list install kamu
+    script: rstcheck --recursive .
+
+    # settings untuk notifikasi, Saya personal tidak suka spam ke email saya.
+    notifications:
+      email:
+        on_failure: never
+        on_pull_requests: never
+
+    # the interresting part!
+    deploy:
+      # jika kamu ingin deploy file Travis yang telah dibangun, gunakan baris selanjutnya
+      skip_cleanup: true
+      # di kasus ini kita ingin deploy ke pypi
+      provider: pypi
+      # distibusi apa yang kita ingin deploy
+      distributions: sdist bdist_wheel
+      # Kapan kita ingin deploy ?
+      on:
+        # di kasus ini saya hanya ingin deploy ketika ada tag...
+        tags: true
+        # ... and when tag is on master and respects the form "v0.0.0"
+        branch:
+          - master
+          - /v?(\d+\.)?(\d+\.)?(\*|\d+)$/
+      # username pypi kamu
+      user: 73VW
+      # Pypi password kamu aman dengan Travis jika kamu menginstall Travis CLI
+      password:
+        secure: cGJz+vETnxwWAZQvzveJKOyn3rWy3/tcVmJvTVuflrgKgwMRm+sfQZB3vo39LzDcDbMzlzxLO4SUsqDpCxlPPM1pCjqHeUkke76pXA3HGTqfSS5VBic979pBDBqzFe8SLxery0ND7uPAam2xtZQcMRjIzMZFS+ZBD3tD9pWFnFqQOaw6Mwnfj2dWuA7BeNEBEeG+EErAJTqWHlwodjLsDBBilrvYEMPha049JWSz9TE1SMUKWZszCpo2hda8edvcB7WrNWJCYO+Pmc56aUHGlqiyRUowec9ZQplhmD7HWriRvda4n+1WqUB8tdACqBSBo6t39dis/yiLDv/qZpi6cooxJBtlK184AZvCIfjiu8ua5JqJ/SBghzrwLf7b5VbWg/WOtS8NEB+TYhZhpmkYLPXnOoJLYbbrOYA/sz/QfwXke2NCTp7apZFAtU1lFN2gVWsmff7ysRWwwHW/iidCAcu9BXlwMt2x2dv5PqSSqN1QdwCQ+cGcewlIPInHwCpXwI4sJXPEHeax0J5c206Yf4PMkzgrUj1+UmpB2AKJkMF0+kGd+MOj9SXYbNE1Lc456CuvKUflVry12mVQCgqqL6lZQadQ+aNKy0LoK4o4CN6JTUMpIn6JIOapLc9hzOGZgVuFzZ5YAs6l8VraMzZuAzOEv79UB92B3Iq2Vxki8vo=
+      # Gunakan berikut ini jika kamu tidak punya Travis CLI
+      password : ${PYPI_PASSWORD}
+
+`Password`
+----------
+
+
+
+
+

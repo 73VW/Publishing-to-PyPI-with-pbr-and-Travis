@@ -1,6 +1,11 @@
 `⚙️Automate your publishing to PyPI with PBR and Travis`
 =========================================================
 
+For complete documentation:
+
+Navigate to `ReadTheDocs <https://publishing-to-pypi-with-pbr-and-travis.readthedocs.io>`_
+
+
 `✔️Step 1: write the setup for your python project`
 ***************************************************
 

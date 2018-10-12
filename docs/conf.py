@@ -16,13 +16,10 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
-from datetime import datetime
-
 # -- Project information -----------------------------------------------------
-now = datetime.now()
 
 project = 'Automate your publishing to PyPI with PBR and Travis'
-copyright = f'{now.year}, 73VW'
+copyright = '2018, 73VW'
 author = '73VW'
 
 # The short X.Y version

@@ -31,7 +31,7 @@ seperti yang bisa kamu lihat di file `python setup`_ sudah termasuk kedalam repo
 
 seperti yang bisa kamu lihat di file `config setup`_ sudah termasuk ke dalam repository ini, syntaxnya tidak lebih sulit dari pada file yang terakhir.
 
-Mari kita bahas setiap bagian bersama-sama
+Mari kita bahas setiap bagian bersama-sama.
 
 Pertama bagian metadata:
 

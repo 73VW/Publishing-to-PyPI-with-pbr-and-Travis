@@ -1,8 +1,8 @@
 `⚙️Otomatiskan penerbitan anda ke PyPI dengan PBR dan Travis`
-=============================================================
+==============================================================
 
 `✔️Langkah 1: tuliskan setup untuk python project kamu`
-***************************************************
+********************************************************
 jika kamu ingin mempublish project kamu ke PyPi, pertama kamu harus membuat setup file.
 
 di tutorial ini, saya akan membahas menggunakan PBR_ dengan proses sederhana.
@@ -205,7 +205,7 @@ Jika kamu mempunyai `Travis CLI`_, yang satu ini untuk kamu.
 🎉 Sekarang kamu telah siap untuk pergi 🎉
 
 `✔️Jadi, Apa sekarang?!`
-******************
+*************************
 
 Ayo kita coba push semuanya ke repository untuk mengecek apakah semuanya sudah benar dan test lulus.
 

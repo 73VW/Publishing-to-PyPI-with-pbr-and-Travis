@@ -180,7 +180,82 @@ Namun, saya hanya menjelaskan settingan yang biasa saya gunakan.
 `Password`
 ----------
 
+Jika kamu tidak menginstall `Travis CLI`_, gunakan option kedua yang telah saya sebutkan diatas dan lakukan yang berikut ini:
 
+- Di halaman profil kamu, kamu cari project kamu dan click little gear ⚙️. Ini akan membawa kamu pergi ke settings.
+- Pergi ke bagian :code:`Environment Variables` dan tambahkan variable baru. 
+- Jika kamu mengambil dari contohku, namanya akan menjadi PYPI_PASSWORD dan isinya adalah password kamu.
 
+.. image:: Add_pypi_password.PNG
+    :width: 100%
+    :alt: How-to add your password to Travis
 
+Jika kamu mempunyai `Travis CLI`_, yang satu ini untuk kamu.
 
+- Biarkan kosong bagian password, seperti dibawah ini.
+
+.. code:: yaml
+
+    user: 73VW
+    # Your Pypi password
+    password:
+
+- Ayo kita mengenkripsi, jalankan :code:`travis encrypt --add deploy.password` dan Travis akan menanyakan password kamu, itu adalah enskripsi dan paste itu di file.
+
+🎉 Sekarang kamu telah siap untuk pergi 🎉
+
+`✔️Jadi, Apa sekarang?!`
+******************
+
+Ayo kita coba push semuanya ke repository untuk mengecek apakah semuanya sudah benar dan test lulus.
+
+Pergi ke `Travis home page`_ dan cek apakah semuanya seperti yang diinginkan.
+
+Untuk kamu ingat, kita tidak set up semua tag di github jadi commit ini tidak seharusnya di deploy.
+
+Travis juga akan bilang seperti ini:
+
+:code:`Skipping a deployment with the pypi provider because this is not a tagged commit`
+
+`✔️Let's tag it!`
+******************
+
+Sekarang buat tag. ini sangat mudah dengan git. Dokumentasi Git tag bisa di temukan di `here <https://git-scm.com/book/en/v2/Git-Basics-Tagging>`_.
+
+Perhatikan bahwa dengan :code:`git tag` pilihan :code:`-a` memungkinkan anda menentukan versi dan :code:`-m` pesan.
+
+Jadi, perintah Anda adalah sebagai berikut:
+
+:code:`git tag -a 0.0.1 -m "First pypi deployment"`
+
+Sekarang kamu bisa memeriksa jika sudah dibuat dengan menjalankan :code:`git tag`.
+Hasilnya akan terlihat seperti berikut:
+
+.. code:: bash
+
+    $ git tag
+    v0.0.1
+
+dan sekarang push dan periksa kembali Travis dan pypi dan package kamu yang harus di deploy
+
+PSA: jangan lupa tambahkan :code:`--tags` ke command push kamu jika tidak mereka akan tetap berada di repo local kamu.
+
+**✔️Deployed!**
+
+`⚠️Global notes`
+*****************
+
+✔️ Project kamu harus public untuk menggunakan Travis. Jika tidak kau bisa upgrade ke Travis pro.
+
+✔️ Alamat email kamu harus sudah di verifikasi di pypi untuk mengunggah project baru. Jika tidak unggahan akan di tolak.
+
+✔️ Tag versi kamu **HARUS** dalam bentuk [DIGIT.DIGIT.DIGIT]. cek https://docs.openstack.org/pbr/3.1.0/semver.html untuk info lebih lanjut.
+
+.. Bibliographie:
+
+.. _PBR: https://docs.openstack.org/pbr/latest/index.html
+
+.. _`python setup`: ./setup.py
+.. _`config setup`: ./setup.cfg
+.. _`Travis home page`: https://travis-ci.org
+.. _`Travis CLI`: https://github.com/travis-ci/travis.rb

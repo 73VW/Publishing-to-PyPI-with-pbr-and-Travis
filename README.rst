@@ -1,6 +1,11 @@
 `⚙️Automate your publishing to PyPI with PBR and Travis`
 =========================================================
 
+For complete documentation:
+
+Navigate to `ReadTheDocs <https://publishing-to-pypi-with-pbr-and-travis.readthedocs.io>`_
+
+
 `✔️Step 1: write the setup for your python project`
 ***************************************************
 
@@ -186,7 +191,7 @@ If you don't have `Travis CLI`_ installed, use the second option I mentioned abo
 - Go to the :code:`Environment Variables` section and add a new variable.
 - If you take my example, its name will be PYPI_PASSWORD and the value your password.
 
-.. image:: Add_pypi_password.PNG
+.. image:: ./docs/_static/Add_pypi_password.PNG
     :width: 100%
     :alt: How-to add your password to Travis
 

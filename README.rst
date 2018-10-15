@@ -3,7 +3,7 @@
 
 For complete documentation:
 
-Navigate to `ReadTheDocs <https://publishing-to-pypi-with-pbr-and-travis.readthedocs.io>`_
+Navigate to `ReadTheDocs <https://automate-your-publishing-to-pypi-with-pbr-and-travis.rtfd.io>`_
 
 
 `✔️Step 1: write the setup for your python project`

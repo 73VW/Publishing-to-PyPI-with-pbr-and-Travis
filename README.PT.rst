@@ -1,5 +1,5 @@
 `⚙️Automate your publishing to PyPI with PBR and Travis`
-=========================================================
+==========================================================
 
 Para a documentação completa:
 
@@ -7,7 +7,7 @@ Vá para `ReadTheDocs <https://publishing-to-pypi-with-pbr-and-travis.readthedoc
 
 
 `✔️Passo 1: escreva o setup para seu projeto python`
-***************************************************
+******************************************************
 
 Se vbocÊ quiser publicar seu projeto no PyPi, primeiro você deve fazer um arquivo setup.
 
@@ -95,12 +95,12 @@ Primeiro de tudo, a seção de metadata:
 🎉 Depois de um pouco de ajustes você está pronto para seguir! 🎉
 
 `✔️Passo 2: Habilitar Travis!`
-***************************
+******************************
 
 Dois modos de habilitar Travis estão presentes aqui. Um usando  `Travis CLI`_ e outro sem ele.
 
 `Usando travis CLI`
--------------------
+---------------------
 
 Run :code:`travis login` and login to travis.
 
@@ -117,7 +117,7 @@ Agora um novo arquivo chamado :code:`.travis.yml` foi criado e está disponível
 Vamos passar por esse arquivo mais tarde.
 
 `Manualmente`
-----------
+----------------
 
 - Vá para `Travis home page`_.
 - Logue-se ou Registre-se.
@@ -126,7 +126,7 @@ Vamos passar por esse arquivo mais tarde.
 - Selecione o projeto que deseja.
 
 `.travis.yml`
--------------
+-----------------
 
 Agora vamos escrever nosso arquivo de configuração.
 
@@ -223,7 +223,7 @@ Travis também vai te dizer isso:
 :code:`Skipping a deployment with the pypi provider because this is not a tagged commit`
 
 `✔️Vmos colocar uma tag!`
-******************
+****************************
 
 Agora, crie uma tag. Isso é muito fácil com o git. A documentação das Tags Git podem ser encontradas  `aqui <https://git-scm.com/book/en/v2/Git-Basics-Tagging>`_.
 

@@ -190,14 +190,14 @@ Sin embargo, voy a explicar la configuración que suelo usar.
 Si no tenes `Travis CLI`_ instalado, use la segunda opcion que yo mencione anteriormente y haga lo siguiente:
 
 - En tu pagina de perfil, busca tu proyecto y clickea en un pequeño engranaje ⚙️. Esto te llevara a la configuracion.
-- Dirigirse a :code:`Environment Variables` seccion y agregar una nueva variable.
+- Dirigirse a la seccion :code:`Environment Variables` y agregar una nueva variable.
 - Si tomaste mi ejemplo, el nombre va a ser PYPI_PASSWORD y el valor de la password.
 
 .. image:: ./docs/_static/Add_pypi_password.PNG
     :width: 100%
     :alt: How-to add your password to Travis
 
-Si tenes `Travis CLI`_, este es para vos.
+Si tenes `Travis CLI`_, esto es para vos.
 
 - Dejar la sesion de password en blanco, como lo siguiente.
 

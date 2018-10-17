@@ -1,13 +1,13 @@
 `⚙️Automatice su publicación a PyPI con PBR y Travis`
-=========================================================
+========================================================
 
 Para la documentacion completa:
 
-Dirigirse `aca <https://automate-your-publishing-to-pypi-with-pbr-and-travis.rtfd.io>`_
+Dirigirse a `documentacion <https://automate-your-publishing-to-pypi-with-pbr-and-travis.rtfd.io>`_
 
 
 `✔️Paso 1: escribir la configuracion de tu proyecto python`
-***************************************************
+*************************************************************
 
 Si estas buscando publicar tu proyecto en Pypi, primero tenes que crear el archivo de configuracion
 
@@ -95,7 +95,7 @@ Primero de todo, la seccion de metadata:
 🎉 Despues de algunos ajustes, estamos listos para seguir! 🎉
 
 `✔️Paso 2: Habilitar Travis!`
-***************************
+******************************
 
 Dos formas de habilitar Travis, una usando `Travis CLI`_ y otra sin usarlo.
 
@@ -118,9 +118,9 @@ Travis esta disponible ahora para este repo.
 Vamos a volver por este archivo mas tarde.
 
 `Manualmente`
-----------
+----------------
 
-- Ir a la página de inicio de `Travis`_.
+- Ir a la página de inicio de `Travis home page`_.
 - Regístrate o Inicia sesión.
 - Ir a tu página de perfil y sincronizar tu cuenta.
 - Tus repositorios públicos de Github ahora están listados arriba.
@@ -185,7 +185,7 @@ Sin embargo, voy a explicar la configuración que suelo usar.
       password : ${PYPI_PASSWORD}
 
 `Contraseña`
-----------
+-------------
 
 Si no tenes `Travis CLI`_ instalado, use la segunda opcion que yo mencione anteriormente y haga lo siguiente:
 
@@ -212,7 +212,7 @@ Si tenes `Travis CLI`_, esto es para vos.
 🎉 Ahora estas listo para seguir adelante! 🎉
 
 `✔️Bien, ahora que?!`
-******************
+**********************
 
 Bueno, ¡intentemos enviar todo al repositorio para comprobar si todo está bien y si las pruebas pasan!
 
@@ -225,7 +225,7 @@ Travis tambien nos va a decir esto:
 :code:`Skipping a deployment with the pypi provider because this is not a tagged commit`
 
 `✔️Vamos a taggear esto!`
-******************
+**************************
 
 Ahora, creamos un tag. Esto es muy facil con git, la documentacion puede encontarse `aca <https://git-scm.com/book/en/v2/Git-Basics-Tagging>`_.
 
@@ -250,7 +250,7 @@ Observacion : No olvidarse de agregar :code:`--tags` para realizar el push, sino
 **✔️Implementando!**
 
 `⚠️Notas globales`
-*****************
+********************
 
 ✔️ Tu proyecto debe ser público para poder utilizar Travis. De lo contrario teenes que actualizar a Travis pro.
 

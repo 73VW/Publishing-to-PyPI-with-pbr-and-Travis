@@ -253,7 +253,7 @@ PSA: Не забудьте добавить :code:`--tags` к вашей ком�
 `✔️Checked by`
 *****************
 
-- `@YourAccount <https://github.com/qwerty432 >`_
+🎃 `@qwerty432 <https://github.com/qwerty432>`_
 
 .. Bibliographie:
 

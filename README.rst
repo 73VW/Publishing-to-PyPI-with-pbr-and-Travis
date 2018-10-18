@@ -19,3 +19,5 @@ Multiple languages documentation are available. Check all Readme files of this r
 🎃 `@leoassuncao <https://github.com/leoassuncao>`_
 
 🎃 `@ehx <https://github.com/ehx>`_
+
+🎃 `@qwerty432 <https://github.com/qwerty432>`_

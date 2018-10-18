@@ -1,4 +1,4 @@
-`⚙️Automate your publishing to PyPI with PBR and Travis`
+`⚙️Automatize sua publicação no PyPI com PBR e Travis`
 ==========================================================
 
 Para a documentação completa:
@@ -6,21 +6,21 @@ Para a documentação completa:
 Vá para `ReadTheDocs <https://publishing-to-pypi-with-pbr-and-travis.readthedocs.io>`_
 
 
-`✔️Passo 1: escreva o setup para seu projeto python`
-******************************************************
+`✔️Passo 1: escreva o arquivo setup para seu projeto python`
+**************************************************************
 
-Se vbocÊ quiser publicar seu projeto no PyPi, primeiro você deve fazer um arquivo setup.
+Se você quiser publicar seu projeto no PyPi, primeiro você deve fazer um arquivo setup.
 
-Nesse tutotirla, eu vou cobrir o use do PBR_ que simplifica o processo.
+Nesse tutorial, eu vou explicar o uso do PBR_ que simplifica o processo.
 
 `Setup.py`
 ----------
 
-Como você pode ver no arquivo `python setup`_ incluso neste repositório, a sintaxe é bem básica.
+Como você pode ver no arquivo `setup python`_ incluso neste repositório, a sintaxe é bem básica.
 
 .. code:: python
 
-    """Setup example."""
+    """Exemplo de arquivo Setup."""
 
     from setuptools import setup
 
@@ -30,12 +30,12 @@ Como você pode ver no arquivo `python setup`_ incluso neste repositório, a sin
         pbr=True
     )
 
-🎉 You simplify define that you want to use PBR_ and that's it! 🎉
+🎉 Você define que deseja usar PBR_ e pronto! 🎉
 
 `Setup.cfg`
 -----------
 
-Como vocÊ pode ver no arquivo `config setup`_ incluso neste repositório, a sintaxe não é mais complicada do que a do último arquivo.
+Como você pode ver no arquivo `config setup`_ incluso neste repositório, a sintaxe é tão simples quanto a do último arquivo.
 
 Vamos passar por cada seção juntos.
 
@@ -78,11 +78,11 @@ Primeiro de tudo, a seção de metadata:
         Programming Language :: Python :: Implementation :: CPython
         Topic :: Education
 
-    # Encontrar automaticamente pacote root
+    # Encontrar automaticamente o pacote root
     [options]
     packages = find:
 
-    # Quais arquivos que não são códigos-fonte vocÊ quer fazer deploy?
+    # Quais arquivos que não são códigos-fonte você deseja fazer deploy?
     [files]
     data_files =
         some/example = some/example/*
@@ -92,37 +92,37 @@ Primeiro de tudo, a seção de metadata:
     console_scripts =
         automabot = your_package.__main__:main
 
-🎉 Depois de um pouco de ajustes você está pronto para seguir! 🎉
+🎉 Depois desses ajustes você está pronto para seguir! 🎉
 
-`✔️Passo 2: Habilitar Travis!`
-******************************
+`✔️Passo 2: Habilitando Travis!`
+********************************
 
-Dois modos de habilitar Travis estão presentes aqui. Um usando  `Travis CLI`_ e outro sem ele.
+Dois modos de habilitar Travis são apresentados aqui. Um usando  `Travis CLI`_ e o outro sem ele.
 
 `Usando travis CLI`
 ---------------------
 
-Run :code:`travis login` and login to travis.
+Rode o comando :code:`travis login` e realize o login no Travis.
 
-Agora vocÊ pode rodar :code:`travis init`.
+Agora você pode rodar :code:`travis init`.
 
-Se você está usando um repositório git, Travis vai detectá-lo e perguntar se está correto.
+Se você está usando um repositório git, Travis vai detectá-lo e perguntar se isso está correto.
 
 Caso contrário, ele irá dizer que pode detectar o repositório.
 
 Após você enviar :code:`Enter`, Travis pergunta qual a linguagem principal. Nesse caso, digite :code:`Python`.
 
-Agora um novo arquivo chamado :code:`.travis.yml` foi criado e está disponível no seu repositório. E Travis está habilitado neste repositório.
+Agora um novo arquivo chamado :code:`.travis.yml` foi criado e está disponível no seu repositório. Agora Travis está habilitado neste repositório.
 
 Vamos passar por esse arquivo mais tarde.
 
 `Manualmente`
 ----------------
 
-- Vá para `Travis home page`_.
+- Vá para `pagina inicial Travis`_.
 - Logue-se ou Registre-se.
 - Vá para sua página de perfil e sincronize sua conta.
-- Seu repositório público de Github estão agora listados abaixo.
+- Seus repositórios públicos do Github estão agora listados abaixo.
 - Selecione o projeto que deseja.
 
 `.travis.yml`
@@ -160,7 +160,7 @@ Entretanto, vou explicar as configurações que geralmente uso.
 
     # A parte interessante!
     deploy:
-      # Se você precisar fazer o deploy de arquivos que o Travis construium use a próxima linha
+      # Se você precisar fazer o deploy de arquivos que o Travis construiu use a próxima linha
       skip_cleanup: true
       # Nesse caso nós queremos fazer deploy no pypi
       provider: pypi
@@ -176,7 +176,7 @@ Entretanto, vou explicar as configurações que geralmente uso.
           - /v?(\d+\.)?(\d+\.)?(\*|\d+)$/
       # Seu nome de usuário pypi
       user: 73VW
-      # Sua senha pypi assegurada pelo Travis se você tiver o Travis CLI instalado
+      # Sua senha pypi protegida pelo Travis se você tiver o Travis CLI instalado
       password:
         secure: cGJz+vETnxwWAZQvzveJKOyn3rWy3/tcVmJvTVuflrgKgwMRm+sfQZB3vo39LzDcDbMzlzxLO4SUsqDpCxlPPM1pCjqHeUkke76pXA3HGTqfSS5VBic979pBDBqzFe8SLxery0ND7uPAam2xtZQcMRjIzMZFS+ZBD3tD9pWFnFqQOaw6Mwnfj2dWuA7BeNEBEeG+EErAJTqWHlwodjLsDBBilrvYEMPha049JWSz9TE1SMUKWZszCpo2hda8edvcB7WrNWJCYO+Pmc56aUHGlqiyRUowec9ZQplhmD7HWriRvda4n+1WqUB8tdACqBSBo6t39dis/yiLDv/qZpi6cooxJBtlK184AZvCIfjiu8ua5JqJ/SBghzrwLf7b5VbWg/WOtS8NEB+TYhZhpmkYLPXnOoJLYbbrOYA/sz/QfwXke2NCTp7apZFAtU1lFN2gVWsmff7ysRWwwHW/iidCAcu9BXlwMt2x2dv5PqSSqN1QdwCQ+cGcewlIPInHwCpXwI4sJXPEHeax0J5c206Yf4PMkzgrUj1+UmpB2AKJkMF0+kGd+MOj9SXYbNE1Lc456CuvKUflVry12mVQCgqqL6lZQadQ+aNKy0LoK4o4CN6JTUMpIn6JIOapLc9hzOGZgVuFzZ5YAs6l8VraMzZuAzOEv79UB92B3Iq2Vxki8vo=
       # Use o seguinte se não tiver Travis CLI
@@ -195,7 +195,7 @@ Se você não tiver `Travis CLI`_ instalado, use a segunda opção que mencionei
     :width: 100%
     :alt: Como adicionar sua senha ao Travis
 
-Se você tem `Travis CLI`_, este é pra você.
+Se você instalou `Travis CLI`_, faça o seguinte.
 
 - Deixe em branco a seção de senha, como abaixo.
 
@@ -205,7 +205,7 @@ Se você tem `Travis CLI`_, este é pra você.
     # Sua senha Pypi
     password:
 
-- Agora vamos encriptá-la! Simplesmente digite :code:`travis encrypt --add deploy.password` e Travis vai perguntar sua senha, encriptá-lo e colar no arquivo.
+- Agora vamos encriptá-la! Simplesmente digite :code:`travis encrypt --add deploy.password` Travis vai perguntar sua senha, vai encriptá-la e colar no arquivo.
 
 🎉 Agora você está pronto para seguir! 🎉
 
@@ -214,18 +214,18 @@ Se você tem `Travis CLI`_, este é pra você.
 
 Bem, vamos tentar subir tudo para o repositório para checar se tudo está certo e se os testes passam!
 
-Vá para `Travis home page`_ e cheque se tudo correu bem!
+Vá para `pagina inicial Travis`_ e verifique se tudo deu certo!
 
-Como você se lembra, nós não configuramos nenhuma tag no github então esse commit não deveria ser "deployado".
+Como você se lembra, não configuramos nenhuma tag no github então esse commit não deve ser "deployado".
 
-Travis também vai te dizer isso:
+Travis também vai te dizer o seguinte:
 
 :code:`Skipping a deployment with the pypi provider because this is not a tagged commit`
 
-`✔️Vmos colocar uma tag!`
+`✔️Vamos colocar uma tag!`
 ****************************
 
-Agora, crie uma tag. Isso é muito fácil com o git. A documentação das Tags Git podem ser encontradas  `aqui <https://git-scm.com/book/en/v2/Git-Basics-Tagging>`_.
+Agora, crie uma tag. Isso é fácil com o git. A documentação das Tags Git podem ser encontradas  `aqui <https://git-scm.com/book/en/v2/Git-Basics-Tagging>`_.
 
 Note que com  :code:`git tag` a opção :code:`-a` permite que você especifique a versão e :code:`-m` a mensagem.
 
@@ -233,15 +233,15 @@ Então seu comando vai ser o seguinte:
 
 :code:`git tag -a 0.0.1 -m "First pypi deployment"`
 
-Agora você pode checar se ela foi criada com o comando :code:`git tag`.
-O resultado deve parecer com o seguinte.
+Agora você pode verificar se ela foi criada com o comando :code:`git tag`.
+O resultado deve se parecer com o seguinte:
 
 .. code:: bash
 
     $ git tag
     v0.0.1
 
-E agora use o comando push e cheque Travis de novo e então pypi e seu pacote deverão ser deployados!
+Agora realize o push e verifique novamente, o Travis, pypi e seu pacote deverão ser deployados!
 
 Obs: Não se esqueça de adicionar :code:`--tags` ao seu comando push ou eles vão ficar no seu repositório local.
 
@@ -250,7 +250,7 @@ Obs: Não se esqueça de adicionar :code:`--tags` ao seu comando push ou eles v�
 `⚠️Notas Globais`
 *****************
 
-✔️ Seu projeto precisa ser público para usar Travis. Caso contrário, você vai ter que usar Travis pro.
+✔️ Seu projeto precisa ser público para usar Travis. Caso contrário, você terá que usar a versão Travis pro.
 
 ✔️ Seu endereço de e-mail precisa ser verificado no pypi para fazer o upload de um novo projeto. Caso contrário o upload vai ser rejeitado.
 
@@ -260,7 +260,7 @@ Obs: Não se esqueça de adicionar :code:`--tags` ao seu comando push ou eles v�
 
 .. _PBR: https://docs.openstack.org/pbr/latest/index.html
 
-.. _`python setup`: ./setup.py
+.. _`setup python`: ./setup.py
 .. _`config setup`: ./setup.cfg
-.. _`Travis home page`: https://travis-ci.org
+.. _`pagina inicial Travis`: https://travis-ci.org
 .. _`Travis CLI`: https://github.com/travis-ci/travis.rb

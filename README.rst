@@ -23,3 +23,5 @@ Multiple languages documentation are available. Check all Readme files of this r
 🎃 `@cassianofnts <https://github.com/cassianofnts>`_
 
 🎃 `@qwerty432 <https://github.com/qwerty432>`_
+
+🎃 `@IonTarna <https://github.com/IonTarna>`_

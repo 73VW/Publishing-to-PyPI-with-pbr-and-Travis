@@ -1,18 +1,18 @@
-.. image:: https://img.shields.io/travis/73VW/Publishing-to-PyPI-with-pbr-and-Travis/master.svg?style=for-the-badge&label=Travis&maxAge=2592000
+.. image:: https://img.shields.io/travis/73VW/Publishing-to-PyPI-with-pbr-and-Travis/master.svg?style=for-the-badge&label=Travis
     :alt: Travis (.org)
     :target: https://travis-ci.org/73VW/Publishing-to-PyPI-with-pbr-and-Travis
 
-.. image:: https://img.shields.io/readthedocs/automate-your-publishing-to-pypi-with-pbr-and-travis.svg?style=for-the-badge&label=Read+the+Docs&maxAge=2592000
+.. image:: https://img.shields.io/readthedocs/automate-your-publishing-to-pypi-with-pbr-and-travis.svg?style=for-the-badge&label=Read+the+Docs
     :alt: Read the Docs
     :target: https://automate-your-publishing-to-pypi-with-pbr-and-travis.readthedocs.io/en/latest/
 
-.. image:: https://img.shields.io/pypi/v/Publishing-to-PyPI-with-pbr-and-Travis.svg?maxAge=2592000&style=for-the-badge
+.. image:: https://img.shields.io/pypi/v/Publishing-to-PyPI-with-pbr-and-Travis.svg?maxAge=86400&style=for-the-badge
     :alt: PyPI
     :target: https://pypi.org/project/Publishing-to-PyPI-with-pbr-and-Travis/
 
-.. image:: https://img.shields.io/gitter/room/Publishing-to-PyPI-with-pbr-and-Travis/Lobby.svg?style=for-the-badge
+.. image:: https://img.shields.io/gitter/room/Publishing-to-PyPI-with-pbr-and-Travis/Lobby.svg?style=for-the-badge&maxAge=2592000
     :alt: Gitter
-    :target: https://gitter.im/Publishing-to-PyPI-with-pbr-and-Travis/Lobby
+    :target: https://gitter.im/Publishing-to-PyPI-with-pbr-and-Travis/
 
 
 `⚙️Automate your publishing to PyPI with PBR and Travis`

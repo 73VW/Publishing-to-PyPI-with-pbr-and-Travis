@@ -1,0 +1,23 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, 73VW
+# This file is distributed under the same license as the Automate your publishing to PyPI with PBR and Travis package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Automate your publishing to PyPI with PBR and Travis \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-05 17:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../index.rst:7
+# ac0068412b6d45c8b1035427b6cd7228
+msgid "Automate your publishing to PyPI with PBR and Travis!"
+msgstr ""
+

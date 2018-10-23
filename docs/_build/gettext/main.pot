@@ -1,0 +1,318 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2018, 73VW
+# This file is distributed under the same license as the Automate your publishing to PyPI with PBR and Travis package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Automate your publishing to PyPI with PBR and Travis \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-05 17:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../main.rst:2
+# 2ca20724e71a4b04a436d91dad9c1b33
+msgid "`⚙️Automate your publishing to PyPI with PBR and Travis`"
+msgstr ""
+
+#: ../../main.rst:5
+# 97ad7b34caa443fbbec4c45cd1b43216
+msgid "`✔️Step 1: write the setup for your python project`"
+msgstr ""
+
+#: ../../main.rst:7
+# 2759853d55da45b68cec9a0d6f6a4d98
+msgid "If you want to publish your project to PyPi, you first have to make a setup file."
+msgstr ""
+
+#: ../../main.rst:9
+# eebd6ca2e7eb4eb6bdca88551c42bf9d
+msgid "In this tutorial, I will cover the use of PBR_ which simplifies the process."
+msgstr ""
+
+#: ../../main.rst:12
+# e69e8da874a945b5927201a7fb4de214
+msgid "`Setup.py`"
+msgstr ""
+
+#: ../../main.rst:14
+# 6aab101eecec4350a0a0291dd039159c
+msgid "As you can see in the `python setup`_ file included in this repository, the syntax is quite basic."
+msgstr ""
+
+#: ../../main.rst:28
+# d2a3a57c5ea24d23a2b43f70ffe6f550
+msgid "🎉 You simplify define that you want to use PBR_ and that's it! 🎉"
+msgstr ""
+
+#: ../../main.rst:31
+# b1af79c97d6248fdb0c2b225e7d3971a
+msgid "`Setup.cfg`"
+msgstr ""
+
+#: ../../main.rst:33
+# 72cacc23cebc4fc58935ca985620ae97
+msgid "As you can see in the `config setup`_ file included in this repository, the syntax not more complicated than the last file."
+msgstr ""
+
+#: ../../main.rst:35
+# f79436e54c114d30b22743997766e4a9
+msgid "Let's go through every section together."
+msgstr ""
+
+#: ../../main.rst:37
+# d6263fcba7214d77a1e271ea0c53d16a
+msgid "First of all, the metadata section:"
+msgstr ""
+
+#: ../../main.rst:90
+# b0871cc1824943a886f4f5cf3f647f07
+msgid "🎉 After a few tweaking you are now ready to go! 🎉"
+msgstr ""
+
+#: ../../main.rst:93
+# 69ad82f8aaa24aeeb6280a2ccf1ded6b
+msgid "`✔️Step 2: Enable Travis!`"
+msgstr ""
+
+#: ../../main.rst:95
+# f8ce56ed5dbc436898c2d0d75f7971b2
+msgid "Two ways of enabling Travis are presented here. One using `Travis CLI`_ and one without."
+msgstr ""
+
+#: ../../main.rst:98
+# 692a08eb642b479a8caa368c6cc2a21f
+msgid "`Using travis CLI`"
+msgstr ""
+
+#: ../../main.rst:100
+# f542a0641b794f1a95ad903bac446554
+msgid "Run :code:`travis login` and login to travis."
+msgstr ""
+
+#: ../../main.rst:102
+# 30db42248efc431388cad84384e0ebbb
+msgid "Now you can run :code:`travis init`."
+msgstr ""
+
+#: ../../main.rst:104
+# 0aa4e03b53744b7dbde69a967d39e85e
+msgid "If you are in a git repository, Travis will detect it and ask if this is correct."
+msgstr ""
+
+#: ../../main.rst:106
+# 6a063180948f47ff8a3e5b8b644f1dc2
+msgid "Otherwise, it will tell you it can detect the repo."
+msgstr ""
+
+#: ../../main.rst:108
+# 5a1d79d0d09d43b092e42bc46b9b5b56
+msgid "Once you hit :code:`Enter`, Travis asks the main language. In this case, type :code:`Python`."
+msgstr ""
+
+#: ../../main.rst:110
+# 75c99d1f4bc54b0393f45bf4a1a805e1
+msgid "Now a new file called :code:`.travis.yml` has been created and is available in your repo. Moreover, Travis is now enabled for this repo."
+msgstr ""
+
+#: ../../main.rst:112
+# 5496b09e60ac483989ce931c31944588
+msgid "We will go through this file later."
+msgstr ""
+
+#: ../../main.rst:115
+# c6a0d689a4c744b7bb714d64ec958de6
+msgid "`Manually`"
+msgstr ""
+
+#: ../../main.rst:117
+# 84ed7eb54dbd4a53a913cf8c3aeecd43
+msgid "Go to `Travis home page`_."
+msgstr ""
+
+#: ../../main.rst:118
+# 8415047acfcb4f2e98f29d067c254b07
+msgid "Sign up or Sign in."
+msgstr ""
+
+#: ../../main.rst:119
+# baf36d030ab44690954fd04eed693176
+msgid "Go to your profile page and sync your account."
+msgstr ""
+
+#: ../../main.rst:120
+# ac90352d2b534290a6284a89af885072
+msgid "Your public Github repositories are now listed above."
+msgstr ""
+
+#: ../../main.rst:121
+# bc574a30848b48beb7e3b1729c7c3e9c
+msgid "Toggle the project you want."
+msgstr ""
+
+#: ../../main.rst:124
+# d26c0112e8344ffebea780a53296ed3b
+msgid "`.travis.yml`"
+msgstr ""
+
+#: ../../main.rst:126
+# 65536ff16cfc4e8394f4c6520920f949
+msgid "Now let's write our setting file."
+msgstr ""
+
+#: ../../main.rst:128
+# 5d75360fd04f4b52930bd1fe71d71765
+msgid "As the doc is really well made, I suggest you go check it first as I won't explain everything. You can find it here https://docs.travis-ci.com/user/getting-started/."
+msgstr ""
+
+#: ../../main.rst:130
+# f62d7a01567d4855ac1cdfb59f7d1f10
+msgid "However, I will explain the settings I usually use."
+msgstr ""
+
+#: ../../main.rst:181
+# 1301a4f8487040ecb60df7e9ab24be22
+msgid "`Password`"
+msgstr ""
+
+#: ../../main.rst:183
+# 50b2e2fa308347778722a5b8964a4245
+msgid "If you don't have `Travis CLI`_ installed, use the second option I mentioned above and do the following:"
+msgstr ""
+
+#: ../../main.rst:185
+# eaa29bef430041648698cfd5d800b3b9
+msgid "In your profile page, find your project and click on the little gear ⚙️. This will bring you to the settings."
+msgstr ""
+
+#: ../../main.rst:186
+# 7558c86272114c17b45ff753f66404d4
+msgid "Go to the :code:`Environment Variables` section and add a new variable."
+msgstr ""
+
+#: ../../main.rst:187
+# 8728bc2c80454b569f95449c14a69a7e
+msgid "If you take my example, its name will be PYPI_PASSWORD and the value your password."
+msgstr ""
+
+#: ../../main.rst:193
+# 40d754ea757d4b2bb2d4a6cf18e7e5f2
+msgid "If you have `Travis CLI`_, this one is for you."
+msgstr ""
+
+#: ../../main.rst:195
+# 612fdb4290b9471ba9346c45a05c0f8e
+msgid "Leave blank the password section, like the following."
+msgstr ""
+
+#: ../../main.rst:203
+# b24a8456d29942a5aa7384f3bcb98b98
+msgid "Now let's encrypt it! Simply run :code:`travis encrypt --add deploy.password` and Travis will ask for your password, encrypt it and paste it to the file."
+msgstr ""
+
+#: ../../main.rst:205
+# aa19d7847cd3402d88b2bb3fef4ed6d0
+msgid "🎉 Now your are ready to go! 🎉"
+msgstr ""
+
+#: ../../main.rst:208
+# 17f5be4f467d448d98cd42b021576b86
+msgid "`✔️So what now?!`"
+msgstr ""
+
+#: ../../main.rst:210
+# c3b0f4c812524a1c87d9f66c0a3e0a7a
+msgid "Well, let's try to push everyhing to the repository to check if everything is alright and if the tests pass!"
+msgstr ""
+
+#: ../../main.rst:212
+# 545130d8bf3f4baca9bba5bd4c208ce2
+msgid "Go to `Travis home page`_ and check if everything went well!"
+msgstr ""
+
+#: ../../main.rst:214
+# c8961a9e950348f3a6803c4089fdc2c9
+msgid "As you remember, we haven't set up any tag in github so this commit shouldn't get deployed."
+msgstr ""
+
+#: ../../main.rst:216
+# 1d1b44c7390f41cf8b588c5cda0e351e
+msgid "Travis will also tell it:"
+msgstr ""
+
+#: ../../main.rst:218
+# eb01bcd1fb574196985f843d4b925253
+msgid ":code:`Skipping a deployment with the pypi provider because this is not a tagged commit`"
+msgstr ""
+
+#: ../../main.rst:221
+# c332b6e9126d40c380aa9db5c589ae62
+msgid "`✔️Let's tag it!`"
+msgstr ""
+
+#: ../../main.rst:223
+# e02df2c6784742688f1f1f787d80c738
+msgid "Now, create a tag. This is easy with git. Git tag doc can be found `here <https://git-scm.com/book/en/v2/Git-Basics-Tagging>`_."
+msgstr ""
+
+#: ../../main.rst:225
+# 58f2b2f3eefe41a89d71e4ffa1f48196
+msgid "Note that with :code:`git tag` the option :code:`-a` allows you to specify the version and :code:`-m` the message."
+msgstr ""
+
+#: ../../main.rst:227
+# 5064ac757a7c444f8eda3c202551cab0
+msgid "So your command will be the following:"
+msgstr ""
+
+#: ../../main.rst:229
+# c160e8cbd3d54416b570ff7a7503ccca
+msgid ":code:`git tag -a 0.0.1 -m \"First pypi deployment\"`"
+msgstr ""
+
+#: ../../main.rst:231
+# 99a52d51a09b4ce0b4f49aed5a9b1b88
+msgid "Now you can check if it was created by running :code:`git tag`. The result should look like the following."
+msgstr ""
+
+#: ../../main.rst:239
+# 595463c4d82b4b03a61ea7bd87e769c2
+msgid "And now push and check again Travis and pypi and your package should be deployed!"
+msgstr ""
+
+#: ../../main.rst:241
+# fc55af3a51a54ae3b644b51caf4fb833
+msgid "PSA: Don't forget to add :code:`--tags` to your push command otherwise they will stay in your local repo."
+msgstr ""
+
+#: ../../main.rst:243
+# 012cf05ce931401fbefb8966fbd5da0d
+msgid "**✔️Deployed!**"
+msgstr ""
+
+#: ../../main.rst:246
+# 19b0211dc7a84608a6a2d206b63fed36
+msgid "`⚠️Global notes`"
+msgstr ""
+
+#: ../../main.rst:248
+# f1c5ba5c856447feadcd65d547c5d3e0
+msgid "✔️ Your project must be public in order to use Travis. Otherwise you have to upgrade to Travis pro."
+msgstr ""
+
+#: ../../main.rst:250
+# 883369076cd94934b2f60b1a5141dee6
+msgid "✔️ Your email address must be verified on pypi in order to upload a new project. Otherwise upload will be rejected."
+msgstr ""
+
+#: ../../main.rst:252
+# e8b80a5631a44ac6867d6076d5782687
+msgid "✔️Your tag version **MUST** be in the form [DIGIT.DIGIT.DIGIT]. Check https://docs.openstack.org/pbr/3.1.0/semver.html for more infos."
+msgstr ""
+

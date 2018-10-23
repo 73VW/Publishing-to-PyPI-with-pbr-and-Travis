@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es-ES" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es-ES" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>⚙️Automate your publishing to PyPI with PBR and Travis &mdash; documentación de Automate your publishing to PyPI with PBR and Travis - </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="prev" title="Automate your publishing to PyPI with PBR and Travis!" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Automate your publishing to PyPI with PBR and Travis
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><cite>⚙️Automate your publishing to PyPI with PBR and Travis</cite></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-write-the-setup-for-your-python-project"><cite>✔️Step 1: write the setup for your python project</cite></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-py"><cite>Setup.py</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-cfg"><cite>Setup.cfg</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-enable-travis"><cite>✔️Step 2: Enable Travis!</cite></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-travis-cli"><cite>Using travis CLI</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manually"><cite>Manually</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#travis-yml"><cite>.travis.yml</cite></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#password"><cite>Password</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#so-what-now"><cite>✔️So what now?!</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#let-s-tag-it"><cite>✔️Let’s tag it!</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#global-notes"><cite>⚠️Global notes</cite></a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Automate your publishing to PyPI with PBR and Travis</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><cite>⚙️Automate your publishing to PyPI with PBR and Travis</cite></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/main.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="automate-your-publishing-to-pypi-with-pbr-and-travis">
+<h1><cite>⚙️Automate your publishing to PyPI with PBR and Travis</cite><a class="headerlink" href="#automate-your-publishing-to-pypi-with-pbr-and-travis" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="step-1-write-the-setup-for-your-python-project">
+<h2><cite>✔️Step 1: write the setup for your python project</cite><a class="headerlink" href="#step-1-write-the-setup-for-your-python-project" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>If you want to publish your project to PyPi, you first have to make a setup file.</p>
+<p>In this tutorial, I will cover the use of <a class="reference external" href="https://docs.openstack.org/pbr/latest/index.html">PBR</a> which simplifies the process.</p>
+<div class="section" id="setup-py">
+<h3><cite>Setup.py</cite><a class="headerlink" href="#setup-py" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>As you can see in the <a class="reference external" href="./setup.py">python setup</a> file included in this repository, the syntax is quite basic.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Setup example.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">setup_requires</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pbr&#39;</span><span class="p">],</span>
+    <span class="n">pbr</span><span class="o">=</span><span class="bp">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>🎉 You simplify define that you want to use <a class="reference external" href="https://docs.openstack.org/pbr/latest/index.html">PBR</a> and that’s it! 🎉</p>
+</div>
+<div class="section" id="setup-cfg">
+<h3><cite>Setup.cfg</cite><a class="headerlink" href="#setup-cfg" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>As you can see in the <a class="reference external" href="./setup.cfg">config setup</a> file included in this repository, the syntax not more complicated than the last file.</p>
+<p>Let’s go through every section together.</p>
+<p>First of all, the metadata section:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type of python distribution</span>
+<span class="p p-Indicator">[</span><span class="nv">bdist_wheel</span><span class="p p-Indicator">]</span>
+<span class="l l-Scalar l-Scalar-Plain">universal=0</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[metadata]</span>
+<span class="l l-Scalar l-Scalar-Plain"># App name</span>
+<span class="l l-Scalar l-Scalar-Plain">name = Publishing to PyPI with pbr and Travis</span>
+<span class="l l-Scalar l-Scalar-Plain"># Who made it?</span>
+<span class="l l-Scalar l-Scalar-Plain">author = Maël Pedretti</span>
+<span class="l l-Scalar l-Scalar-Plain"># Do I really need to explain the following?</span>
+<span class="l l-Scalar l-Scalar-Plain">author_email = mael.pedretti@he-arc.ch</span>
+<span class="l l-Scalar l-Scalar-Plain"># The short description of your app</span>
+<span class="l l-Scalar l-Scalar-Plain">summary = Publishing to Pypi with PBR and Travis.</span>
+<span class="l l-Scalar l-Scalar-Plain"># License type</span>
+<span class="l l-Scalar l-Scalar-Plain">license = MIT</span>
+<span class="l l-Scalar l-Scalar-Plain"># Which file contains the long description?</span>
+<span class="l l-Scalar l-Scalar-Plain">description-file =</span>
+    <span class="l l-Scalar l-Scalar-Plain">README.rst</span>
+<span class="l l-Scalar l-Scalar-Plain"># Where can I access the project?</span>
+<span class="l l-Scalar l-Scalar-Plain">home-page = https://github.com/73VW/Publishing-to-PyPI-with-pbr-and-Travis</span>
+<span class="l l-Scalar l-Scalar-Plain"># Which version of Python does it need to run?</span>
+<span class="l l-Scalar l-Scalar-Plain">python_requires = &gt;=3.6</span>
+<span class="l l-Scalar l-Scalar-Plain"># How do you classify your app? https://pypi.python.org/pypi?%3Aaction=list_classifiers</span>
+<span class="l l-Scalar l-Scalar-Plain">classifier =</span>
+    <span class="l l-Scalar l-Scalar-Plain">Development Status :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">4 - Beta</span>
+    <span class="l l-Scalar l-Scalar-Plain">Environment :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Other Environment</span>
+    <span class="l l-Scalar l-Scalar-Plain">Intended Audience :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Education</span>
+    <span class="l l-Scalar l-Scalar-Plain">Operating System :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">MacOS :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">MacOS X</span>
+    <span class="l l-Scalar l-Scalar-Plain">Operating System :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Microsoft :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Windows</span>
+    <span class="l l-Scalar l-Scalar-Plain">Operating System :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">POSIX</span>
+    <span class="l l-Scalar l-Scalar-Plain">Programming Language :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Python :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3 :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Only</span>
+    <span class="l l-Scalar l-Scalar-Plain">Programming Language :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Python :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3.6</span>
+    <span class="l l-Scalar l-Scalar-Plain">Programming Language :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Python :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Implementation :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CPython</span>
+    <span class="l l-Scalar l-Scalar-Plain">Topic :</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Education</span>
+
+<span class="c1"># Automatically find root package</span>
+<span class="p p-Indicator">[</span><span class="nv">options</span><span class="p p-Indicator">]</span>
+<span class="nt">packages = find</span><span class="p">:</span>
+
+<span class="c1"># Which files that are not source code do you want to deploy?</span>
+<span class="p p-Indicator">[</span><span class="nv">files</span><span class="p p-Indicator">]</span>
+<span class="l l-Scalar l-Scalar-Plain">data_files =</span>
+    <span class="l l-Scalar l-Scalar-Plain">some/example = some/example/*</span>
+
+<span class="c1"># Where does your app start?</span>
+<span class="p p-Indicator">[</span><span class="nv">entry_points</span><span class="p p-Indicator">]</span>
+<span class="l l-Scalar l-Scalar-Plain">console_scripts =</span>
+    <span class="l l-Scalar l-Scalar-Plain">automabot = your_package.__main__:main</span>
+</pre></div>
+</div>
+<p>🎉 After a few tweaking you are now ready to go! 🎉</p>
+</div>
+</div>
+<div class="section" id="step-2-enable-travis">
+<h2><cite>✔️Step 2: Enable Travis!</cite><a class="headerlink" href="#step-2-enable-travis" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Two ways of enabling Travis are presented here. One using <a class="reference external" href="https://github.com/travis-ci/travis.rb">Travis CLI</a> and one without.</p>
+<div class="section" id="using-travis-cli">
+<h3><cite>Using travis CLI</cite><a class="headerlink" href="#using-travis-cli" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Run <code class="code docutils literal notranslate"><span class="pre">travis</span> <span class="pre">login</span></code> and login to travis.</p>
+<p>Now you can run <code class="code docutils literal notranslate"><span class="pre">travis</span> <span class="pre">init</span></code>.</p>
+<p>If you are in a git repository, Travis will detect it and ask if this is correct.</p>
+<p>Otherwise, it will tell you it can detect the repo.</p>
+<p>Once you hit <code class="code docutils literal notranslate"><span class="pre">Enter</span></code>, Travis asks the main language. In this case, type <code class="code docutils literal notranslate"><span class="pre">Python</span></code>.</p>
+<p>Now a new file called <code class="code docutils literal notranslate"><span class="pre">.travis.yml</span></code> has been created and is available in your repo. Moreover, Travis is now enabled for this repo.</p>
+<p>We will go through this file later.</p>
+</div>
+<div class="section" id="manually">
+<h3><cite>Manually</cite><a class="headerlink" href="#manually" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li><p>Go to <a class="reference external" href="https://travis-ci.org">Travis home page</a>.</p></li>
+<li><p>Sign up or Sign in.</p></li>
+<li><p>Go to your profile page and sync your account.</p></li>
+<li><p>Your public Github repositories are now listed above.</p></li>
+<li><p>Toggle the project you want.</p></li>
+</ul>
+</div>
+<div class="section" id="travis-yml">
+<h3><cite>.travis.yml</cite><a class="headerlink" href="#travis-yml" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Now let’s write our setting file.</p>
+<p>As the doc is really well made, I suggest you go check it first as I won’t explain everything. You can find it here <a class="reference external" href="https://docs.travis-ci.com/user/getting-started/">https://docs.travis-ci.com/user/getting-started/</a>.</p>
+<p>However, I will explain the settings I usually use.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do I really need to explain this line?</span>
+<span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+
+<span class="c1"># You can use a cache to build faster</span>
+<span class="nt">cache</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pip</span>
+
+<span class="c1"># python version. You can define more than one if you want to run multiple tests</span>
+<span class="nt">python</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="s">&#39;3.6&#39;</span>
+
+<span class="c1"># your install script or your install list</span>
+<span class="nt">install</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pip install rstcheck</span>
+
+<span class="c1"># your test script or your install list</span>
+<span class="nt">script</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rstcheck --recursive .</span>
+
+<span class="c1"># settings for notifications, I personnaly don&#39;t like to be spammed on my email</span>
+<span class="nt">notifications</span><span class="p">:</span>
+  <span class="nt">email</span><span class="p">:</span>
+    <span class="nt">on_failure</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">never</span>
+    <span class="nt">on_pull_requests</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">never</span>
+
+<span class="c1"># the interresting part!</span>
+<span class="nt">deploy</span><span class="p">:</span>
+  <span class="c1"># If you need to deploy files Travis has built, use the next line</span>
+  <span class="nt">skip_cleanup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="c1"># In this case we want to deploy to pypi</span>
+  <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pypi</span>
+  <span class="c1"># What distribution we want to deploy</span>
+  <span class="nt">distributions</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sdist bdist_wheel</span>
+  <span class="c1"># When do we want to deploy?</span>
+  <span class="nt">on</span><span class="p">:</span>
+    <span class="c1"># In this case I want to deploy only when a tag is present...</span>
+    <span class="nt">tags</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="c1"># ... and when tag is on master and respects the form &quot;v0.0.0&quot;</span>
+    <span class="nt">branch</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">master</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/v?(\d+\.)?(\d+\.)?(\*|\d+)$/</span>
+  <span class="c1"># Your pypi username</span>
+  <span class="nt">user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">73VW</span>
+  <span class="c1"># Your Pypi password secured by Travis if you have Travis CLI installed</span>
+  <span class="nt">password</span><span class="p">:</span>
+    <span class="nt">secure</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cGJz+vETnxwWAZQvzveJKOyn3rWy3/tcVmJvTVuflrgKgwMRm+sfQZB3vo39LzDcDbMzlzxLO4SUsqDpCxlPPM1pCjqHeUkke76pXA3HGTqfSS5VBic979pBDBqzFe8SLxery0ND7uPAam2xtZQcMRjIzMZFS+ZBD3tD9pWFnFqQOaw6Mwnfj2dWuA7BeNEBEeG+EErAJTqWHlwodjLsDBBilrvYEMPha049JWSz9TE1SMUKWZszCpo2hda8edvcB7WrNWJCYO+Pmc56aUHGlqiyRUowec9ZQplhmD7HWriRvda4n+1WqUB8tdACqBSBo6t39dis/yiLDv/qZpi6cooxJBtlK184AZvCIfjiu8ua5JqJ/SBghzrwLf7b5VbWg/WOtS8NEB+TYhZhpmkYLPXnOoJLYbbrOYA/sz/QfwXke2NCTp7apZFAtU1lFN2gVWsmff7ysRWwwHW/iidCAcu9BXlwMt2x2dv5PqSSqN1QdwCQ+cGcewlIPInHwCpXwI4sJXPEHeax0J5c206Yf4PMkzgrUj1+UmpB2AKJkMF0+kGd+MOj9SXYbNE1Lc456CuvKUflVry12mVQCgqqL6lZQadQ+aNKy0LoK4o4CN6JTUMpIn6JIOapLc9hzOGZgVuFzZ5YAs6l8VraMzZuAzOEv79UB92B3Iq2Vxki8vo=</span>
+  <span class="c1"># Use the following if you don&#39;t have Travis CLI</span>
+  <span class="nt">password </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${PYPI_PASSWORD}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="password">
+<h3><cite>Password</cite><a class="headerlink" href="#password" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>If you don’t have <a class="reference external" href="https://github.com/travis-ci/travis.rb">Travis CLI</a> installed, use the second option I mentioned above and do the following:</p>
+<ul class="simple">
+<li><p>In your profile page, find your project and click on the little gear ⚙️. This will bring you to the settings.</p></li>
+<li><p>Go to the <code class="code docutils literal notranslate"><span class="pre">Environment</span> <span class="pre">Variables</span></code> section and add a new variable.</p></li>
+<li><p>If you take my example, its name will be PYPI_PASSWORD and the value your password.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/Add_pypi_password.PNG"><img alt="How-to add your password to Travis" src="_images/Add_pypi_password.PNG" style="width: 100%;" /></a>
+<p>If you have <a class="reference external" href="https://github.com/travis-ci/travis.rb">Travis CLI</a>, this one is for you.</p>
+<ul class="simple">
+<li><p>Leave blank the password section, like the following.</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">73VW</span>
+<span class="c1"># Your Pypi password</span>
+<span class="nt">password</span><span class="p">:</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Now let’s encrypt it! Simply run <code class="code docutils literal notranslate"><span class="pre">travis</span> <span class="pre">encrypt</span> <span class="pre">--add</span> <span class="pre">deploy.password</span></code> and Travis will ask for your password, encrypt it and paste it to the file.</p></li>
+</ul>
+<p>🎉 Now your are ready to go! 🎉</p>
+</div>
+</div>
+<div class="section" id="so-what-now">
+<h2><cite>✔️So what now?!</cite><a class="headerlink" href="#so-what-now" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Well, let’s try to push everyhing to the repository to check if everything is alright and if the tests pass!</p>
+<p>Go to <a class="reference external" href="https://travis-ci.org">Travis home page</a> and check if everything went well!</p>
+<p>As you remember, we haven’t set up any tag in github so this commit shouldn’t get deployed.</p>
+<p>Travis will also tell it:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">Skipping</span> <span class="pre">a</span> <span class="pre">deployment</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">pypi</span> <span class="pre">provider</span> <span class="pre">because</span> <span class="pre">this</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">a</span> <span class="pre">tagged</span> <span class="pre">commit</span></code></p>
+</div>
+<div class="section" id="let-s-tag-it">
+<h2><cite>✔️Let’s tag it!</cite><a class="headerlink" href="#let-s-tag-it" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Now, create a tag. This is easy with git. Git tag doc can be found <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">here</a>.</p>
+<p>Note that with <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span></code> the option <code class="code docutils literal notranslate"><span class="pre">-a</span></code> allows you to specify the version and <code class="code docutils literal notranslate"><span class="pre">-m</span></code> the message.</p>
+<p>So your command will be the following:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">-a</span> <span class="pre">0.0.1</span> <span class="pre">-m</span> <span class="pre">&quot;First</span> <span class="pre">pypi</span> <span class="pre">deployment&quot;</span></code></p>
+<p>Now you can check if it was created by running <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span></code>.
+The result should look like the following.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git tag
+v0.0.1
+</pre></div>
+</div>
+<p>And now push and check again Travis and pypi and your package should be deployed!</p>
+<p>PSA: Don’t forget to add <code class="code docutils literal notranslate"><span class="pre">--tags</span></code> to your push command otherwise they will stay in your local repo.</p>
+<p><strong>✔️Deployed!</strong></p>
+</div>
+<div class="section" id="global-notes">
+<h2><cite>⚠️Global notes</cite><a class="headerlink" href="#global-notes" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>✔️ Your project must be public in order to use Travis. Otherwise you have to upgrade to Travis pro.</p>
+<p>✔️ Your email address must be verified on pypi in order to upload a new project. Otherwise upload will be rejected.</p>
+<p>✔️Your tag version <strong>MUST</strong> be in the form [DIGIT.DIGIT.DIGIT]. Check <a class="reference external" href="https://docs.openstack.org/pbr/3.1.0/semver.html">https://docs.openstack.org/pbr/3.1.0/semver.html</a> for more infos.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Automate your publishing to PyPI with PBR and Travis!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, 73VW.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'es_ES',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

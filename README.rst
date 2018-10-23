@@ -12,7 +12,7 @@
 
 .. image:: https://img.shields.io/gitter/room/Publishing-to-PyPI-with-pbr-and-Travis/Lobby.svg?style=for-the-badge
     :alt: Gitter
-    :target: https://gitter.im/Publishing-to-PyPI-with-pbr-and-Travis/Lobby
+    :target: https://gitter.im/Publishing-to-PyPI-with-pbr-and-Travis/
 
 
 `⚙️Automate your publishing to PyPI with PBR and Travis`

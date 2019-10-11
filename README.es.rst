@@ -3,20 +3,20 @@
 
 Para la documentacion completa:
 
-Dirigirse a `documentacion <https://automate-your-publishing-to-pypi-with-pbr-and-travis.rtfd.io>`_
+Dirigirse a `ReadTheDocs <https://automate-your-publishing-to-pypi-with-pbr-and-travis.rtfd.io>`_
 
 
 `✔️Paso 1: escribir la configuracion de tu proyecto python`
 *************************************************************
 
-Si estas buscando publicar tu proyecto en Pypi, primero tenes que crear el archivo de configuracion
+Si estas buscando publicar tu proyecto en Pypi, primero tenes que crear el archivo de configuración.
 
 En este tutorial, vamos a realizarlo con el uso de PBR_ que nos simplificara el proceso. 
 
 `Setup.py`
 ----------
 
-Como se puede ver en el archivo `python setup`_ incluido en este repositorio, la sintaxis es bastante basica.
+Como se puede ver en el archivo `python setup`_ incluido en este repositorio, la sintaxis es bastante básica.
 
 .. code:: python
 
@@ -35,11 +35,11 @@ Como se puede ver en el archivo `python setup`_ incluido en este repositorio, la
 `Setup.cfg`
 -----------
 
-Como se puede ver en el archivo `config setup`_ incluido en este repositorio, la sintaxis no es mas complicada que este ultimo archivo.
+Como se puede ver en el archivo `config setup`_ incluido en este repositorio, la sintaxis no es más complicada que este último archivo.
 
-Veamos cada seccion juntos.
+Veamos cada sección juntos.
 
-Primero de todo, la seccion de metadata:
+Primero de todo, la sección de metadata:
 	
 .. code:: yaml
 
@@ -92,17 +92,17 @@ Primero de todo, la seccion de metadata:
     console_scripts =
         automabot = your_package.__main__:main
 
-🎉 Despues de algunos ajustes, estamos listos para seguir! 🎉
+🎉 Después de algunos ajustes, estamos listos para seguir! 🎉
 
 `✔️Paso 2: Habilitar Travis!`
 ******************************
 
-Dos formas de habilitar Travis, una usando `Travis CLI`_ y otra sin usarlo.
+Hay dos formas de habilitar Travis, usando `Travis CLI`_ y sin usarlo.
 
 `Usando travis CLI`
 -------------------
 
-Ejecuta :code:`travis login` y logueese en travis.
+Ejecuta :code:`travis login` e identifíquese en travis.
 
 Ahora podes ejecutar :code:`travis init`.
 
@@ -112,18 +112,18 @@ De lo contrario, te dirá que puede detectar el repositorio.
 
 Una vez presionado :code:`Enter`, Travis te pregunta el lenguaje principal. En este caso, esribimos :code:`Python`.
 
-Ahora se creo un archivo llamado :code:`.travis.yml` y esta disponible en tu repositorio.
-Travis esta disponible ahora para este repo.
+Ahora se creó un archivo llamado :code:`.travis.yml` y esta disponible en tu repositorio.
+Travis ya esta disponible para este repositorio.
 
-Vamos a volver por este archivo mas tarde.
+Volveremos a este archivo más tarde.
 
 `Manualmente`
 ----------------
 
-- Ir a la página de inicio de `Travis home page`_.
+- Ve a la página de inicio de `Travis home page`_.
 - Regístrate o Inicia sesión.
-- Ir a tu página de perfil y sincronizar tu cuenta.
-- Tus repositorios públicos de Github ahora están listados arriba.
+- Ve a tu página de perfil y sincroniza tu cuenta.
+- Tus repositorios públicos de Github estarán listados arriba.
 - Cambia al proyecto que quieras.
 
 
@@ -132,56 +132,56 @@ Vamos a volver por este archivo mas tarde.
 
 Ahora vamos a escribir nuestro archivo de configuración.
 
-Como el documento está realmente bien hecho, sugiero que se revise primero, porque no lo voy a explicar todo. Se puede encontrar aca https://docs.travis-ci.com/user/getting-started/.
+Como el documento está realmente bien hecho, sugiero que se revise primero, porque no lo voy a explicar todo. Se puede encontrar acá https://docs.travis-ci.com/user/getting-started/.
 
 Sin embargo, voy a explicar la configuración que suelo usar.
 
 .. code:: yaml
 
-    # Es necesario explicar esta linea?
+    # Es necesario explicar esta línea?
     language: python
 
-    # Se puede usar la cache para realizar el build mas rapido
+    # Se puede usar la cache para realizar el build mas rápido
     cache: pip
 
-    # version de python. Se pueden definir mas de uno si se quiere realizar multiples pruebas.
+    # Versión de python. Se pueden definir más de una si se quieren realizar multiples pruebas.
     python:
       - '3.6'
 
-    # su script de instalación o su lista de instalación
+    # Su script de instalación o su lista de instalación
     install: pip install rstcheck
 
-    # tu script de prueba o tu lista de instalación
+    # Su script de prueba o tu lista de instalación
     script: rstcheck --recursive .
 
-    # configurando las notificaciones , a mi personalmente no me gusta que me llegue spam a mi email.
+    # Configuración de notificaciones, a mí personalmente no me gusta que me llegue spam a mi email.
     notifications:
       email:
         on_failure: never
         on_pull_requests: never
 
-    # la parte interesante!
+    # La parte interesante!
     deploy:
       # Si necesita implementar archivos que Travis ha creado, use la siguiente línea
       skip_cleanup: true
       # En caso de que queramos hacer la implementacion a pypi
       provider: pypi
-      # Para cuales distribuciones queremos hacer la implementacion
+      # Distribuciones queremos hacer la desplegar
       distributions: sdist bdist_wheel
-      # Cuando queremos hacer la implementacion
+      # ¿Cuándo queremos hacer el despliegue?
       on:
-        # En este caso solo queremos hacer el deploy cuando el tag este presente...
+        # En este caso solo queremos hacer el despliegue cuando el tag este presente...
         tags: true
-        # ... y cuando el tag esta sobre la master "v0.0.0"
+        # ... y cuando la etiqueta está sobre la master y respeta la forma "v0.0.0"
         branch:
           - master
           - /v?(\d+\.)?(\d+\.)?(\*|\d+)$/
-      # Usuario de pypy
+      # Usuario de pypi
       user: 73VW
-      # Contrasenia de Pypi password asegurada por Travis si tenes Travis CLI instalado
+      # Contraseña de Pypi password asegurada por Travis si tienes Travis CLI instalado
       password:
         secure: cGJz+vETnxwWAZQvzveJKOyn3rWy3/tcVmJvTVuflrgKgwMRm+sfQZB3vo39LzDcDbMzlzxLO4SUsqDpCxlPPM1pCjqHeUkke76pXA3HGTqfSS5VBic979pBDBqzFe8SLxery0ND7uPAam2xtZQcMRjIzMZFS+ZBD3tD9pWFnFqQOaw6Mwnfj2dWuA7BeNEBEeG+EErAJTqWHlwodjLsDBBilrvYEMPha049JWSz9TE1SMUKWZszCpo2hda8edvcB7WrNWJCYO+Pmc56aUHGlqiyRUowec9ZQplhmD7HWriRvda4n+1WqUB8tdACqBSBo6t39dis/yiLDv/qZpi6cooxJBtlK184AZvCIfjiu8ua5JqJ/SBghzrwLf7b5VbWg/WOtS8NEB+TYhZhpmkYLPXnOoJLYbbrOYA/sz/QfwXke2NCTp7apZFAtU1lFN2gVWsmff7ysRWwwHW/iidCAcu9BXlwMt2x2dv5PqSSqN1QdwCQ+cGcewlIPInHwCpXwI4sJXPEHeax0J5c206Yf4PMkzgrUj1+UmpB2AKJkMF0+kGd+MOj9SXYbNE1Lc456CuvKUflVry12mVQCgqqL6lZQadQ+aNKy0LoK4o4CN6JTUMpIn6JIOapLc9hzOGZgVuFzZ5YAs6l8VraMzZuAzOEv79UB92B3Iq2Vxki8vo=
-      # Use the following if you don't have Travis CLI
+      # Use lo siguiente si no tiene Travis CLI
       password : ${PYPI_PASSWORD}
 
 `Contraseña`
@@ -189,9 +189,9 @@ Sin embargo, voy a explicar la configuración que suelo usar.
 
 Si no tenes `Travis CLI`_ instalado, use la segunda opcion que yo mencione anteriormente y haga lo siguiente:
 
-- En tu pagina de perfil, busca tu proyecto y clickea en un pequeño engranaje ⚙️. Esto te llevara a la configuracion.
-- Dirigirse a la seccion :code:`Environment Variables` y agregar una nueva variable.
-- Si tomaste mi ejemplo, el nombre va a ser PYPI_PASSWORD y el valor de la password.
+- En tu página de perfil, busca tu proyecto y presiona en un pequeño engranaje ⚙️. Esto te llevara a la configuración.
+- Diríjase a la sección :code:`Environment Variables` y agregar una nueva variable.
+- Si tomaste mi ejemplo, el nombre va a ser PYPI_PASSWORD y el valor de la contraseña.
 
 .. image:: ./docs/_static/Add_pypi_password.PNG
     :width: 100%
@@ -199,7 +199,7 @@ Si no tenes `Travis CLI`_ instalado, use la segunda opcion que yo mencione anter
 
 Si tenes `Travis CLI`_, esto es para vos.
 
-- Dejar la sesion de password en blanco, como lo siguiente.
+- Dejar la sesión de password en blanco, como lo siguiente.
 
 .. code:: yaml
 
@@ -209,16 +209,16 @@ Si tenes `Travis CLI`_, esto es para vos.
 
 - Vamos a encriptar esto! Simplemente ejecutar :code:`travis encrypt --add deploy.password` y Travis te va a preguntar el password, va a encriptarlo y lo va a colocar en el archivo.
 
-🎉 Ahora estas listo para seguir adelante! 🎉
+🎉 Ahora estás listo para seguir adelante! 🎉
 
 `✔️Bien, ahora que?!`
 **********************
 
-Bueno, ¡intentemos enviar todo al repositorio para comprobar si todo está bien y si las pruebas pasan!
+Bueno, ¡intente enviarnos todo al repositorio para comprobar si todo está bien y si las pruebas pasan!
 
-Vamos a `Travis home page`_ y chequeamos que este todo bien!
+Vamos a `Travis home page`_ y comprobamos que esté todo bien!
 
-Como recordarás, no configuramos ningun tag en github, por lo que este commit no se debe implementar.
+Como recordarás, no configuramos ningun tag en github, por lo que este commit no se debe desplegar.
 
 Travis tambien nos va a decir esto:
 
@@ -227,36 +227,36 @@ Travis tambien nos va a decir esto:
 `✔️Vamos a taggear esto!`
 **************************
 
-Ahora, creamos un tag. Esto es muy facil con git, la documentacion puede encontarse `aca <https://git-scm.com/book/en/v2/Git-Basics-Tagging>`_.
+Ahora, creamos un tag. Esto es muy fácil con git, la documentación puede encontarse `aca <https://git-scm.com/book/en/v2/Git-Basics-Tagging>`_.
 
-Tener en cuenta que con :code:`git tag` la opcion :code:`-a` te permite especificar la version y :code:`-m` el mensaje.
+Tener en cuenta que :code:`git tag` la opcion :code:`-a` te permite especificar la versión y :code:`-m` el mensaje.
 
-Entonces el comando deberia ser el siguiente:
+Entonces el comando debería ser el siguiente:
 
 :code:`git tag -a 0.0.1 -m "Primer implementacion pypi"`
 
-Ahora se puede chequear si este fue creado corriendo :code:`git tag`.
-El resultado deberia parecerse a lo siguiente:
+Ahora se puede comprobar si este fue creado corriendo :code:`git tag`.
+El resultado debería parecerse a lo siguiente:
 
 .. code:: bash
 
     $ git tag
     v0.0.1
 
-Ahora vamos a realizar un push y chequear nuevamente que Travis, Pypy y tu paquete deberian ser implementados.
+Ahora vamos a realizar un push y comprobar nuevamente que Travis, Pypy y tu paquete estén desplegados.
 
-Observacion : No olvidarse de agregar :code:`--tags` para realizar el push, sino esto solo quedara en tu repositorio local.
+Observación : No olvidarse de agregar :code:`--tags` para realizar el push, sino esto solo quedara en tu repositorio local.
 
 **✔️Implementando!**
 
 `⚠️Notas globales`
 ********************
 
-✔️ Tu proyecto debe ser público para poder utilizar Travis. De lo contrario teenes que actualizar a Travis pro.
+✔️ Tu proyecto debe ser público para poder utilizar Travis. De lo contrario tendrás que actualizar a Travis Pro.
 
 ✔️ Tu dirección de correo electrónico debe ser verificada en Pypi para poder cargar un nuevo proyecto. De lo contrario se rechazará la subida.
 
-✔️ Tu versión de etiqueta **DEBE** tener el formato [DIGITO.DIGITO.DIGITO]. Consulte https://docs.openstack.org/pbr/3.1.0/semver.html para obtener más información.
+✔️ Tu versión de etiqueta **DEBE** tener el formato [DIGITO.DIGITO.DIGITO]. Consulte https://docs.openstack.org/pbr/3.1.0/semver.html para más información.
 
 .. Bibliografia:
 

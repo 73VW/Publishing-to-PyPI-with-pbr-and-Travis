@@ -1,13 +1,13 @@
-`⚙️Automatisiere deine veröffentlichung zu PyPI mit PBR und Travis`
-==================================================================
+`⚙️Automatisiere deine Veröffentlichung zu PyPI mit PBR und Travis`
+===================================================================
 
 Vollständige Dokumentation:
 
 Navigiere zu `ReadTheDocs <https://automate-your-publishing-to-pypi-with-pbr-and-travis.rtfd.io>`_
 
 
-`✔️Schritt 1: Erstelle die Konfiguration für dein pyhton project`
-****************************************************************
+`✔️Schritt 1: Erstelle die Konfiguration für dein Python project`
+*****************************************************************
 
 Um dein Project auf PyPi zu veröffentlichen musst zu zuerst die setup Datei anlegen.
 

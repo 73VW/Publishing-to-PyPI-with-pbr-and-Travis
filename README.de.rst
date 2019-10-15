@@ -1,5 +1,5 @@
 `⚙️Automatisiere deine veröffentlichung zu PyPI mit PBR und Travis`
-=========================================================
+==================================================================
 
 Vollständige Dokumentation:
 
@@ -7,7 +7,7 @@ Navigiere zu `ReadTheDocs <https://automate-your-publishing-to-pypi-with-pbr-and
 
 
 `✔️Schritt 1: Erstelle die Konfiguration für dein pyhton project`
-***************************************************
+****************************************************************
 
 Um dein Project auf PyPi zu veröffentlichen musst zu zuerst die setup Datei anlegen.
 
@@ -95,7 +95,7 @@ Zuerst der Metadata-Abschnitt:
 🎉 Nach ein paar Anpassungen bist du startklar! 🎉
 
 `✔️Schritt 2: Aktiviere Travis!`
-***************************
+*******************************
 
 Es gibt 2 Möglichkeiten, Travis zu nutzen. Einmal mit `Travis CLI`_ und einmal ohne.
 
@@ -223,7 +223,7 @@ Travis wird das auch erwähnen:
 :code:`Skipping a deployment with the pypi provider because this is not a tagged commit`
 
 `✔️Und jetzt mit Tag!`
-******************
+*********************
 
 Leg einen Tag an, das ist sehr einfach mit git. Die Dokumentation dazu ist hier `hier <https://git-scm.com/book/en/v2/Git-Basics-Tagging>`_ zu finden.
 

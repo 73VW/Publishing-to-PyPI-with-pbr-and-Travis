@@ -3,24 +3,24 @@
 
 Pour la documentation complète:
 
-Navigate to `ReadTheDocs <https://automate-your-publishing-to-pypi-with-pbr-and-travis.rtfd.io>`_
+Allez sur `ReadTheDocs <https://automate-your-publishing-to-pypi-with-pbr-and-travis.rtfd.io>`_
 
 
-`✔️Step 1: write the setup for your python project`
+`✔️Étape 1: écrire le setup pour votre projet Python`
 ***************************************************
 
-If you want to publish your project to PyPi, you first have to make a setup file.
+Si vous voulez publier votre projet Python sur PyPi, vous devrez créer un fichier de setup.
 
-In this tutorial, I will cover the use of PBR_ which simplifies the process.
+Dans ce tutoriel, je vous montrerai l’utilité de PBR_ qui devrait simplifier le processus.
 
 `Setup.py`
 ----------
 
-As you can see in the `python setup`_ file included in this repository, the syntax is quite basic.
+Comme vous le voyez dans le fichier `python setup`_ inclus dans le dépôt, la synthaxe est basique.
 
 .. code:: python
 
-    """Setup example."""
+    """Example de setup."""
 
     from setuptools import setup
 
@@ -30,42 +30,42 @@ As you can see in the `python setup`_ file included in this repository, the synt
         pbr=True
     )
 
-🎉 You simplify define that you want to use PBR_ and that's it! 🎉
+🎉 Vous specifiez simplement que vous utilisez PBR_ et c’est bon! 🎉
 
 `Setup.cfg`
 -----------
 
-As you can see in the `config setup`_ file included in this repository, the syntax not more complicated than the last file.
+Comme vous pouvez le voir dans le fichier `config setup`_ inclus aussi dans le dépôt, la syntaxe n’est pas beaucoup plus compliqué que pour l’autre fichier.
 
-Let's go through every section together.
+Allons voir chaque section ensemble.
 
-First of all, the metadata section:
+Pour commencer, la section des métadatas: 
 
 .. code:: yaml
 
-    # Type of python distribution
+    # Type de distribution Python
     [bdist_wheel]
     universal=0
 
     [metadata]
-    # App name
+    # Nom de l‘application
     name = Publishing to PyPI with pbr and Travis
-    # Who made it?
+    # Qui l‘a fait? 
     author = Maël Pedretti
-    # Do I really need to explain the following?
+    # Ai-je vraiment besoin d’expliquer ce qui vient?
     author_email = mael.pedretti@he-arc.ch
-    # The short description of your app
+    # Une description courte de votre application
     summary = Publishing to Pypi with PBR and Travis.
-    # License type
+    # Type de license
     license = MIT
-    # Which file contains the long description?
+    # Quel fichier contient la vraie description?
     description-file =
         README.rst
-    # Where can I access the project?
+    # Page d’accès au projet
     home-page = https://github.com/73VW/Publishing-to-PyPI-with-pbr-and-Travis
-    # Which version of Python does it need to run?
+    # Quelle version de Python a t’elle besoin pour fonctionner?
     python_requires = >=3.6
-    # How do you classify your app? https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    # Comment classiferiez vous votre application? https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifier =
         Development Status :: 4 - Beta
         Environment :: Other Environment
@@ -78,23 +78,23 @@ First of all, the metadata section:
         Programming Language :: Python :: Implementation :: CPython
         Topic :: Education
 
-    # Automatically find root package
+    # Trouver le paquet root automatiquement
     [options]
     packages = find:
 
-    # Which files that are not source code do you want to deploy?
+    # Quels fichiers qui ne sont pas du code source voulez-vous déployer?
     [files]
     data_files =
         some/example = some/example/*
 
-    # Where does your app start?
+    # Où est le commencement de votre application?
     [entry_points]
     console_scripts =
         automabot = your_package.__main__:main
 
-🎉 After a few tweaking you are now ready to go! 🎉
+🎉 Après quelques ajustement vous serez prêt! 🎉
 
-`✔️Step 2: Enable Travis!`
+`✔️Étape 2: Activer Travis!`
 ***************************
 
 Two ways of enabling Travis are presented here. One using `Travis CLI`_ and one without.

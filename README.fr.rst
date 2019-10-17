@@ -16,7 +16,7 @@ Dans ce tutoriel, je vous montrerai l’utilité de PBR_ qui devrait simplifier 
 `Setup.py`
 ----------
 
-Comme vous le voyez dans le fichier `python setup`_ inclus dans le dépôt, la synthaxe est basique.
+Comme vous le voyez dans le fichier `python setup`_ inclus dans le dépôt, la syntaxe est basique.
 
 .. code:: python
 
@@ -30,16 +30,16 @@ Comme vous le voyez dans le fichier `python setup`_ inclus dans le dépôt, la s
         pbr=True
     )
 
-🎉 Vous specifiez simplement que vous utilisez PBR_ et c’est bon! 🎉
+🎉 Vous spécifiez simplement que vous utilisez PBR_ et c’est bon! 🎉
 
 `Setup.cfg`
 -----------
 
-Comme vous pouvez le voir dans le fichier `config setup`_ inclus aussi dans le dépôt, la syntaxe n’est pas beaucoup plus compliqué que pour l’autre fichier.
+Comme vous pouvez le voir dans le fichier `config setup`_ inclus aussi dans le dépôt, la syntaxe n’est pas beaucoup plus compliquée que pour l’autre fichier.
 
 Allons voir chaque section ensemble.
 
-Pour commencer, la section des métadatas: 
+Pour commencer, la section des méta datas: 
 
 .. code:: yaml
 
@@ -56,7 +56,7 @@ Pour commencer, la section des métadatas:
     author_email = mael.pedretti@he-arc.ch
     # Une description courte de votre application
     summary = Publishing to Pypi with PBR and Travis.
-    # Type de license
+    # Type de License
     license = MIT
     # Quel fichier contient la vraie description?
     description-file =
@@ -65,7 +65,7 @@ Pour commencer, la section des métadatas:
     home-page = https://github.com/73VW/Publishing-to-PyPI-with-pbr-and-Travis
     # Quelle version de Python a t’elle besoin pour fonctionner?
     python_requires = >=3.6
-    # Comment classiferiez vous votre application? https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    # Comment classifieriez-vous votre application? https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifier =
         Development Status :: 4 - Beta
         Environment :: Other Environment
@@ -97,20 +97,20 @@ Pour commencer, la section des métadatas:
 `✔️Étape 2: Activer Travis!`
 ****************************
 
-Il existe deux moyens d'activer Travis. Un en utilisant `Travis CLI`_ et un sans.
+Il existe deux moyens d'activer Travis. Un en utilisant `Travis CLI`_ et sans.
 
 `En utilisant Travis CLI`
 -------------------
 
-Lancez :code:`travis login` et connectez vous à Travis.
+Lancez :code:`travis login` et connectez-vous à Travis.
 
 Maintenant vous pouvez lancer :code:`travis init`.
 
-Si vous êtes dans un dépôt Github, Travis le détectera automatiquement et vous demandera si c'est le cas.
+Si vous êtes dans un dépôt GitHub, Travis le détectera automatiquement et vous demandera si c'est le cas.
 
 Sinon, il vous dira qu'il ne peut pas détecter de dépôt.
 
-Une fois que vous appuyez sur:code:`Enter`, Travis vous demandera votre language principal. Dans notre cas, tappez :code:`Python`.
+Une fois que vous appuyez sur :code:`Enter`, Travis vous demandera votre langage principal. Dans notre cas, tapez :code:`Python`.
 
 Maintenant un nouveau fichier appelé :code:`.travis.yml` a été créé et est disponible dans votre dépôt. Travis est maintenant activé pour ce dépôt.
 
@@ -119,27 +119,27 @@ Nous irons voir ce fichier après.
 `Manuellement`
 ----------
 
-- Allez sur la `Page d'acceuil`_.
-- Connectez vous ou créez un compte.
-- Allez sur votre profil et connectez vous avec votre compte Github.
-- Vos dépôts Github public sont maintenant listés au-dessus.
+- Allez sur la `Page d'accueil`_.
+- Connectez-vous ou créez un compte.
+- Allez sur votre profil et connectez-vous avec votre compte GitHub.
+- Vos dépôts GitHub public sont maintenant listés au-dessus.
 - Allez sur le projet que vous voulez.
 
 `.travis.yml`
 -------------
 
-Mainteant allons écrire notre fichier de réglages.
+Maintenant allons écrire notre fichier de réglages.
 
-Comme la documentation est vraiment bien faite, je suggérerai d'aller d'abord y jeter un coup d'oeuil comme je ne vais pas tout expliquer. Vous pouvez la trouver ici : https://docs.travis-ci.com/user/getting-started/.
+Comme la documentation est vraiment bien faite, je suggérerai d'aller d'abord y jeter un coup d'œil  comme je ne vais pas tout expliquer. Vous pouvez la trouver ici : https://docs.travis-ci.com/user/getting-started/.
 
-Je vais par contre vous montrer les réglages que j'utilise courement:
+Je vais en revanche vous montrer les réglages que j'utilise couramment:
 
 .. code:: yaml
 
     # J'ai vraiment besoin d'expliquer cette ligne?
     language: python
 
-    # Vous pouveu utiliser un cacher pour compiler plus rapidement
+    # Vous pouvez utiliser un cacher pour compiler plus rapidement
     cache: pip
 
     # la version de python. Vous pouvez en définir plusieurs si vous voulez faire plusieurs tests.
@@ -152,7 +152,7 @@ Je vais par contre vous montrer les réglages que j'utilise courement:
     # votre script de tests ou votre liste d'installation
     script: rstcheck --recursive .
 
-    # les réglages pour les notifications, je préfere personnelement ne pas être spammer de mails.
+    # les réglages pour les notifications, je préfère personnellement ne pas être spammer de mails.
     notifications:
       email:
         on_failure: never
@@ -168,9 +168,9 @@ Je vais par contre vous montrer les réglages que j'utilise courement:
       distributions: sdist bdist_wheel
       # Quand voulez vous déployer?
       on:
-        # Dans ce cas je veux déployer seuelement quand un tag est présent...
+        # Dans ce cas je veux déployer seulement quand un tag est présent...
         tags: true
-        # ... et quand le tag est sur le master et réspecte la forme "v0.0.0"
+        # ... et quand le tag est sur le master et respecte la forme "v0.0.0"
         branch:
           - master
           - /v?(\d+\.)?(\d+\.)?(\*|\d+)$/
@@ -185,9 +185,9 @@ Je vais par contre vous montrer les réglages que j'utilise courement:
 `Mot de passe`
 ----------
 
-Si vous n'avez pas installé `Travis CLI`_, utilisé la seconde option mentinoné en haut et faittes ce qui suit :
+Si vous n'avez pas installé `Travis CLI`_, utilisé la seconde option mentionnée en haut et faites ce qui suit :
 
-- Sur votre page de profil, trouvez votre projet et cliquez sur la roue dentée ⚙️. Celà va vous emmener vers les réglages.
+- Sur votre page de profil, trouvez votre projet et cliquez sur la roue dentée ⚙️. Cela va vous emmener vers les réglages.
 - Allez vers la section :code:`Environment Variables` et ajoutez une nouvelle variable.
 - Si vous prenez mon exemple, son nom devra être PYPI_PASSWORD et sa valeur devra être votre mot de passe.
 
@@ -205,18 +205,18 @@ Si vous avez `Travis CLI`_, la section suivante est pour vous.
     # Votre mot de passe Pypi
     password:
 
-- Maintenant allons l'encrypter! Lancez simplment :code:`travis encrypt --add deploy.passwor`, Travis vous demandera votre mot de passe, l'encryptera et le mettra dans le fichier.
+- Maintenant allons l'encrypter! Lancez simplement :code:`travis encrypt --add deploy.passwor`, Travis vous demandera votre mot de passe, l'encryptera et le mettra dans le fichier.
 
 🎉 Vous êtes maintenant fin prêt! 🎉
 
-`✔️Alors qu'est-ce qu'on fait mainteant?!`
+`✔️Alors qu'est-ce qu'on fait maintenant?!`
 ******************************************
 
 Eh bien, essayons de mettre quelque chose sur le dépôt pour voir si tout marche correctement et si les tests se font!
 
-Allez sur la `Page d'acceuil`_ et regardez si tout fonctionne bien!
+Allez sur la `Page d'accueil`_ et regardez si tout fonctionne bien!
 
-Comme vous pouvez le remarquer, nous n'avons pas mit de tag dans github donc ça ne devrait pas être déployé.
+Comme vous pouvez le remarquer, nous n'avons pas mis de tag dans GitHub donc ça ne devrait pas être déployé.
 
 Travis vous le dira aussi:
 
@@ -229,11 +229,11 @@ Maintenant, créons un tag. C'est vraiment simple avec git. La documentation pou
 
 Notez que avec :code:`git tag` l'option :code:`-a` vous autorise à spécifier une version et :code:`-m` le message.
 
-Donc votre commande resemblera à ce qui suit:
+Donc votre commande ressemblera à ce qui suit:
 
 :code:`git tag -a 0.0.1 -m "First pypi deployment"`
 
-Mainteant vous pouvez vérifier si ce que vous avez créez fonctionne en lançant :code:`git tag`.
+Maintenant vous pouvez vérifier si ce que vous avez créez fonctionne en lançant :code:`git tag`.
 Le résultat devrait ressembler à ça:
 
 .. code:: bash
@@ -262,5 +262,5 @@ PS: N'oubliez pas d'ajouter :code:`--tags` à votre commande de push ou ça va r
 
 .. _`python setup`: ./setup.py
 .. _`config setup`: ./setup.cfg
-.. _`Page d'acceuil`: https://travis-ci.org
+.. _`Page d'accueil`: https://travis-ci.org
 .. _`Travis CLI`: https://github.com/travis-ci/travis.rb

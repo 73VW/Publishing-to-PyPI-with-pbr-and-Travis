@@ -42,3 +42,7 @@ Multiple languages documentation are available. Check all Readme files of this r
 🎃 `@qwerty432 <https://github.com/qwerty432>`_
 
 🎃 `@IonTarna <https://github.com/IonTarna>`_
+
+🎃 `@Ectalite <https://github.com/Ectalite>`_
+
+🎃 `@spitzlei <https://github.com/spitzlei>`_

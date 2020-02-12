@@ -254,7 +254,7 @@ Obs: Não se esqueça de adicionar :code:`--tags` ao seu comando push ou eles v�
 
 ✔️ Seu endereço de e-mail precisa ser verificado no pypi para fazer o upload de um novo projeto. Caso contrário o upload vai ser rejeitado.
 
-✔️Sua versão de tag  **PRECISA** estar no formato [DIGITO.DIGITO.DIGITO]. Cheque https://docs.openstack.org/pbr/3.1.0/semver.html for more infos.
+✔️ Sua versão de tag  **PRECISA** estar no formato [DIGITO.DIGITO.DIGITO]. Cheque https://docs.openstack.org/pbr/3.1.0/semver.html for more infos.
 
 .. Bibliografia:
 

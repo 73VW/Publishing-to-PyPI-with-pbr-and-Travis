@@ -1,4 +1,4 @@
-`⚙️Automate your publishing to PyPI with PBR and Travis`
+`⚙️ Automate your publishing to PyPI with PBR and Travis`
 =========================================================
 
 For complete documentation:
@@ -6,8 +6,8 @@ For complete documentation:
 Navigate to `ReadTheDocs <https://automate-your-publishing-to-pypi-with-pbr-and-travis.rtfd.io>`_
 
 
-`✔️Step 1: write the setup for your python project`
-***************************************************
+`✔️ Step 1: write the setup for your python project`
+****************************************************
 
 If you want to publish your project to PyPi, you first have to make a setup file.
 
@@ -94,8 +94,8 @@ First of all, the metadata section:
 
 🎉 After a few tweaking you are now ready to go! 🎉
 
-`✔️Step 2: Enable Travis!`
-***************************
+`✔️ Step 2: Enable Travis!`
+****************************
 
 Two ways of enabling Travis are presented here. One using `Travis CLI`_ and one without.
 
@@ -209,8 +209,8 @@ If you have `Travis CLI`_, this one is for you.
 
 🎉 Now your are ready to go! 🎉
 
-`✔️So what now?!`
-******************
+`✔️ So what now?!`
+*******************
 
 Well, let's try to push everyhing to the repository to check if everything is alright and if the tests pass!
 
@@ -222,8 +222,8 @@ Travis will also tell it:
 
 :code:`Skipping a deployment with the pypi provider because this is not a tagged commit`
 
-`✔️Let's tag it!`
-******************
+`✔️ Let's tag it!`
+*******************
 
 Now, create a tag. This is easy with git. Git tag doc can be found `here <https://git-scm.com/book/en/v2/Git-Basics-Tagging>`_.
 
@@ -247,8 +247,8 @@ PSA: Don't forget to add :code:`--tags` to your push command otherwise they will
 
 **✔️Deployed!**
 
-`⚠️Global notes`
-*****************
+`⚠️ Global notes`
+******************
 
 ✔️ Your project must be public in order to use Travis. Otherwise you have to upgrade to Travis pro.
 

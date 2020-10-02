@@ -39,7 +39,7 @@ Comme vous pouvez le voir dans le fichier `config setup`_ inclus aussi dans le d
 
 Allons voir chaque section ensemble.
 
-Pour commencer, la section des méta datas: 
+Pour commencer, la section des métadonnées: 
 
 .. code:: yaml
 
@@ -87,7 +87,7 @@ Pour commencer, la section des méta datas:
     data_files =
         some/example = some/example/*
 
-    # Où est le commencement de votre application?
+    # Quel fichier est le point d'entrée de votre application?
     [entry_points]
     console_scripts =
         automabot = your_package.__main__:main

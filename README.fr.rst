@@ -100,7 +100,7 @@ Pour commencer, la section des métadonnées:
 Il existe deux moyens d'activer Travis. Un en utilisant `Travis CLI`_ et sans.
 
 `En utilisant Travis CLI`
--------------------
+-------------------------
 
 Lancez :code:`travis login` et connectez-vous à Travis.
 
@@ -117,7 +117,7 @@ Maintenant un nouveau fichier appelé :code:`.travis.yml` a été créé et est 
 Nous irons voir ce fichier après.
 
 `Manuellement`
-----------
+--------------
 
 - Allez sur la `Page d'accueil`_.
 - Connectez-vous ou créez un compte.
@@ -183,7 +183,7 @@ Je vais en revanche vous montrer les réglages que j'utilise couramment:
       password : ${PYPI_PASSWORD}
 
 `Mot de passe`
-----------
+--------------
 
 Si vous n'avez pas installé `Travis CLI`_, utilisé la seconde option mentionnée en haut et faites ce qui suit :
 

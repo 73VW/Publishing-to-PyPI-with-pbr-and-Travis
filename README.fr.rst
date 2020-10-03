@@ -1,5 +1,5 @@
 `⚙️Automatisez votre publication vers PyPI avec PBR et Travis`
-=========================================================
+==============================================================
 
 Pour la documentation complète:
 
@@ -210,7 +210,7 @@ Si vous avez `Travis CLI`_, la section suivante est pour vous.
 🎉 Vous êtes maintenant fin prêt! 🎉
 
 `✔️Alors qu'est-ce qu'on fait maintenant?!`
-******************************************
+*******************************************
 
 Eh bien, essayons de mettre quelque chose sur le dépôt pour voir si tout marche correctement et si les tests se font!
 
@@ -248,7 +248,7 @@ PS: N'oubliez pas d'ajouter :code:`--tags` à votre commande de push ou ça va r
 **✔️Déployé!**
 
 `⚠️Notes globales`
-*****************
+******************
 
 ✔️ Votre projet doit être public pour pouvoir utiliser Travis. Sinon vous devrez acheter Travis pro.
 

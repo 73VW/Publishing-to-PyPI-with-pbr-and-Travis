@@ -254,7 +254,7 @@ PSA: Don't forget to add :code:`--tags` to your push command otherwise they will
 
 ✔️ Your email address must be verified on pypi in order to upload a new project. Otherwise upload will be rejected.
 
-✔️Your tag version **MUST** be in the form [DIGIT.DIGIT.DIGIT]. Check https://docs.openstack.org/pbr/3.1.0/semver.html for more infos.
+✔️ Your tag version **MUST** be in the form [DIGIT.DIGIT.DIGIT]. Check https://docs.openstack.org/pbr/3.1.0/semver.html for more infos.
 
 .. Bibliographie:
 
